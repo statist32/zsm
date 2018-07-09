@@ -1,0 +1,40 @@
+\documentclass{article}
+\begin{document}
+\section{Invariante}
+\begin{itemize}
+\item Vorm ersten Durchlauf erfüllt sein (Initialisierung, Induktionsanfang)
+\item Muss bei jedem Schleifendurchlauf erhalten bleiben (Erhaltng, Induktionsschritt)
+\item Invar nach Beendigung der Schleife zeigt Korrektheit (Terminierung)
+\end{itemize}
+
+\section{Divide \& Conquer}
+\begin{itemize}
+\item Aufteilen und Lösen
+\end{itemize}
+
+
+\subsection{Rekursionsgleichungen}
+\begin{itemize}
+\item ineinander einsetzen
+\item Summe erkennen und zusammengefasst aufschreiben
+\end{itemize}
+
+\section{ O-Notation}
+\subsection{Definition}
+\begin{itemize}
+\item $f = O(h) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \forall n \geq n_0 : f(n) \leq c g(n)$ \newline (f wächst asymptotisch höchstens so schnell wie g)
+\item $f = \Omega(g) \Leftrightarrow g = O(f)$ \newline (f wächst asymptotisch mindestens so schnell wie g)
+
+\item f = \Theta(g) \Leftrightarrow f = O(g) und g = O(f) \newline
+(f und g wachsen asymptotisch gleich schnell)
+\item f = o(g) \Leftrightarrow \forall c > 0 \exists n_0 \in N \forall n\beq n_0 : f(n) < c g(n)
+\end{itemize}
+
+
+
+\section{Rechentricks}
+\begin{itemize}
+\item Arithmetische Reihe $\sum_{i=1}^n k  = \frac{n(n+1)}{2} $
+\end{itemize}
+
+\end{document}
