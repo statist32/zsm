@@ -7,11 +7,6 @@
 \item Invar nach Beendigung der Schleife zeigt Korrektheit (Terminierung)
 \end{itemize}
 
-\section{Divide \& Conquer}
-\begin{itemize}
-\item Aufteilen und Lösen
-\end{itemize}
-
 
 \subsection{Rekursionsgleichungen}
 \begin{itemize}
@@ -22,19 +17,65 @@
 \section{ O-Notation}
 \subsection{Definition}
 \begin{itemize}
-\item $f = O(h) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \forall n \geq n_0 : f(n) \leq c g(n)$ \newline (f wächst asymptotisch höchstens so schnell wie g)
-\item $f = \Omega(g) \Leftrightarrow g = O(f)$ \newline (f wächst asymptotisch mindestens so schnell wie g)
+\item $f = O(g) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \; \forall n \geq n_0 : f(n) \leq c g(n)$ \newline (f wächst asymptotisch höchstens so schnell wie g)
+\item $f = \Omega(g) \Leftrightarrow g = O(f)$ \newline (f wachst asymptotisch mindestens so schnell wie g)
 
-\item f = \Theta(g) \Leftrightarrow f = O(g) und g = O(f) \newline
+\item f = $\Theta (g) \Leftrightarrow f = O(g) \; und \; g = O(f)$ \newline
 (f und g wachsen asymptotisch gleich schnell)
-\item f = o(g) \Leftrightarrow \forall c > 0 \exists n_0 \in N \forall n\beq n_0 : f(n) < c g(n)
+\item $f = o(g) \Leftrightarrow \forall c > 0 \; \exists n_0 \in N \forall n\geq n_0 : f(n) < c g(n)$ \newline 
+$ \lim\limits_{n \to \infty}\frac{f(n)}{g(n)} = 0 $\newline (f wächst asymptotisch langsamer als g)
+\item $f = \omega(g) \Leftrightarrow g = o(f)l$ \newline (f wächst asymptotisch langsamer als g)
 \end{itemize}
+\subsection{Eigenschaften}
+\begin{itemize}
+\item $f = o(g) \Rightarrow f = O(g)$
+\item $f = o(g) \; und \;  h = o(g) \Rightarrow f+h = o(g) (auch O, \Omega, \omega, \Theta)$
+\item $f = o(g) \; und \;  h = o(g) \Rightarrow f\cdot h = o(g^2) (auch O, \Omega, \omega, \Theta)$
+\end{itemize}
+\subsection{Reihenfolge}
+$c < log(n) < n^{\frac{1}{k}} < n < n log(n) < n^2 < n^k < 2^n$
+\section{Sortieralgorithmen}
+\subsection {Bubblesort}
+\begin{itemize}
+\item Jeden Durchlauf wird das größte Element auf die n-ite Stelle getauscht. Jeder Vergleich ggf ein Swap.
+\item inkrementelle, inplace, stabil
+\item $BC: \Theta(n)\; AV: \Theta(n^2) \; WC: \Theta(n^2)$
+\end{itemize}
+
+\subsection{Insertionsort}
+\begin{itemize}
+\item Key wird in sortiertes Array eingeordnet. Key wird gemerkt, falls kleiner wird das gö\ss ere Element auf Pos von Key kopiert aber Key wird erst kopiert, wenn die richtige Stelle gefunden worden ist.
+\item inkrementelle, inplace, stabil
+\item $BC: \Theta(n)\; AV: \Theta(n^2) \; WC: \Theta(n^2)$ 
+\end{itemize}
+
+\subsection{Mergesort}
+\begin{itemize}
+\item Teile Array bis auf ein Element Array und sortiere beim rekursiven zusammenfügen. Geteilt wird p bis q, q+1 bis r. \newline
+Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Zielarray ein.
+\item D\&C, 
+\item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(nlog(n))\;$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 \section{Rechentricks}
 \begin{itemize}
 \item Arithmetische Reihe $\sum_{i=1}^n k  = \frac{n(n+1)}{2} $
+\item logarithmus!!! bsp laufzeit aus probe 1
+\item Mastertheorem?
 \end{itemize}
 
 \end{document}
