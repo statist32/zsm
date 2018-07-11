@@ -13,6 +13,39 @@
 \item ineinander einsetzen
 \item Summe erkennen und zusammengefasst aufschreiben
 \end{itemize}
+\subsection{Mastertheorem}
+\subsubsection{Additives Mastertheorem}
+\begin{itemize}
+\item $ a,b,c \; positiv \; n= b^k$
+\item $T (n) \leq \left\{
+\begin{array}{ll}
+c & n  = 1 \\
+a\cdot T(\frac{n}{b}) +c & \, n>1 \\
+\end{array}
+\right. $
+\end{itemize}
+\begin{tabular}{l l  l}
+
+$T(n) \leq c\cdot \frac{a}{a-1}n^{log_b(a)} - \frac{c}{a-1}  $&$= O(n^{log_b(a)}) $&$ \; falls \; a>1$ \\
+$T(n) \leq c\cdot \frac{a}{a-1}n - \frac{c}{a-1} $&$ = O(n)  $& $\; falls \; a=b>1$\\
+$T(n) \leq c\cdot log_b(n) +c  $&$= O(log(n)) $&$\; falls \; a=1$\\
+\end{tabular}
+\subsubsection {allgemeines Mastertheorem}
+\begin{itemize}
+\item $a,b,d,q \geq  1$
+\item $T (n) \leq \left\{
+\begin{array}{ll}
+d & n\leq q \\
+a\cdot T(\frac{n}{b}) +f(n) & \, n>q \\
+\end{array}
+\right. $
+\end{itemize}
+\begin{tabular}{l l}
+$f(n) = O(n^{log_b(a)-\epsilon}) \; mit \; \epsilon > 0$ & $T(n) = O(n^{log_b(a)}) $\\
+$f(n) = \Theta(n^{log_b(a)}) $ & $T(n) = O(n^{log_b(a)} log(n)) $\\
+$f(n) = \Omega(n^{log_b(a)+\epsilon}) \; mit \; \epsilon > 0,$ & $T(n) = \Theta(f(n)) $\\
+$a\cdot f(\frac{n}{b}) \leq \delta  \cdot f(n), \delta < 1, n \to \infty$ & \\
+\end{tabular}
 
 \section{ O-Notation}
 \subsection{Definition}
@@ -24,7 +57,7 @@
 (f und g wachsen asymptotisch gleich schnell)
 \item $f = o(g) \Leftrightarrow \forall c > 0 \; \exists n_0 \in N \forall n\geq n_0 : f(n) < c g(n)$ \newline 
 $ \lim\limits_{n \to \infty}\frac{f(n)}{g(n)} = 0 $\newline (f wächst asymptotisch langsamer als g)
-\item $f = \omega(g) \Leftrightarrow g = o(f)l$ \newline (f wächst asymptotisch langsamer als g)
+\item $f = \omega(g) \Leftrightarrow g = o(f)$ \newline (f wächst asymptotisch langsamer als g)
 \end{itemize}
 \subsection{Eigenschaften}
 \begin{itemize}
@@ -57,10 +90,26 @@ Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Ziela
 \item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(nlog(n))\;$
 \end{itemize}
 
+\subsection{Quicksort(A,p,r)}
+\begin{itemize}
+\item Teile Array nach Pivotelement und füge Pivot dann an Grenze ein. Dann partition bis q-1 und 
+\item D\&C, 
+\item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(n^2))\;$
+\end{itemize}
 
-
-
-
+\section{Heap}
+\subsection{Definition}
+$ Heap := A[i] \geq A[2i] und A[i] \geq A[2i+1]$ \newline
+jeder Knoten hat mindestens so großen Wert wie seine Kinder \newline
+Wird als binärer Baum dargestellt. \newline
+\subsection{Eigenschafen}
+\begin{itemize}
+\item Baumtiefe $\lfloor log(n)\rfloor$
+\item $A[\lfloor \frac{n}{2} \rfloor +1] \; bis \; A[n]$ sind Kinder
+\item Maximum ist die Wurzel A[1]
+\end{itemize}
+\subsection{Build-Heap}
+\subsection{Sort-Heap}
 
 
 
@@ -75,7 +124,7 @@ Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Ziela
 \begin{itemize}
 \item Arithmetische Reihe $\sum_{i=1}^n k  = \frac{n(n+1)}{2} $
 \item logarithmus!!! bsp laufzeit aus probe 1
-\item Mastertheorem?
+
 \end{itemize}
 
 \end{document}
