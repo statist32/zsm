@@ -237,7 +237,7 @@ Danach Heapify(A[i ... i-1])\\
 \item Queue zum Speichern der grauen Knoten
 \item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
 \item entdeckt die Zusammenhangskomponenten
-\item O(|V|+|E|)
+\item $O(|V|+|E|)$
 \end{itemize}
 
 \subsubsection{DFS}
@@ -258,11 +258,36 @@ Danach Heapify(A[i ... i-1])\\
 \begin{itemize}
 \item kein negativer Kreis aber gewichtet
 \item setze alle Knoten auf $\infty$ und update alle adj(u) mit dem Gewicht, dalls geringer als aktueller Wert
-\item
-\item
-\item
-
+\item Laufzeit mit Heaps:$O((|V|+|E|)log(|V|))$
 \end{itemize}
+
+
+\section{Dynamische Programmierung}
+\begin{itemize}
+\item Berechne die Funktionswerte iterativ und bottom-up und nutze Teilergebnisse
+\end{itemize}
+\subsection{Bellman-Ford}
+\begin{itemize}
+\item ohne negative Zyklen => kürzesten Pfad
+\item $ Laufzeit O(|V|^2+|V||E|) und Speicherbedarf O(|V|^2)$
+\end{itemize}
+\subsection{APSP}
+\subsubsection{Floyd-Warshall(W,n)}
+\begin{itemize}
+\item Keine negative Zyklen
+\item Initialisiere Adjazenzmatrix mit 1 Nachbarknoten
+\item halte k mal Spalte K und Zeit K fest und guck, ob geringere Summen entstehen
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
 
 
 
