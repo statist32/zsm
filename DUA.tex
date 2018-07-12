@@ -2,12 +2,12 @@
 \begin{document}
 \section{Invariante}
 \begin{itemize}
-\item Vorm ersten Durchlauf erfüllt sein (Initialisierung, Induktionsanfang)
+\item Vorm ersten Durchlauf erf{\"u}llt sein (Initialisierung, Induktionsanfang)
 \item Muss bei jedem Schleifendurchlauf erhalten bleiben (Erhaltng, Induktionsschritt)
 \item Invar nach Beendigung der Schleife zeigt Korrektheit (Terminierung)
 \end{itemize}
 
-
+ 
 \subsection{Rekursionsgleichungen}
 \begin{itemize}
 \item ineinander einsetzen
@@ -50,14 +50,14 @@ $a\cdot f(\frac{n}{b}) \leq \delta  \cdot f(n), \delta < 1, n \to \infty$ & \\
 \section{ O-Notation}
 \subsection{Definition}
 \begin{itemize}
-\item $f = O(g) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \; \forall n \geq n_0 : f(n) \leq c g(n)$ \\ (f wächst asymptotisch höchstens so schnell wie g)
+\item $f = O(g) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \; \forall n \geq n_0 : f(n) \leq c g(n)$ \\ (f w{\"a}chst asymptotisch h{\"o}chstens so schnell wie g)
 \item $f = \Omega(g) \Leftrightarrow g = O(f)$ \newline (f wachst asymptotisch mindestens so schnell wie g)
 
 \item f = $\Theta (g) \Leftrightarrow f = O(g) \; und \; g = O(f)$ \newline
 (f und g wachsen asymptotisch gleich schnell)
 \item $f = o(g) \Leftrightarrow \forall c > 0 \; \exists n_0 \in N \forall n\geq n_0 : f(n) < c g(n)$ \\ 
-$ \lim\limits_{n \to \infty}\frac{f(n)}{g(n)} = 0 $\newline (f wächst asymptotisch langsamer als g)
-\item $f = \omega(g) \Leftrightarrow g = o(f)$ \newline (f wächst asymptotisch langsamer als g)
+$ \lim\limits_{n \to \infty}\frac{f(n)}{g(n)} = 0 $\newline (f w{\"a}chst asymptotisch langsamer als g)
+\item $f = \omega(g) \Leftrightarrow g = o(f)$ \newline (f w{\"a}chst asymptotisch langsamer als g)
 \end{itemize}
 \subsection{Eigenschaften}
 \begin{itemize}
@@ -70,29 +70,29 @@ $c < log(n) < n^{\frac{1}{k}} < n < n log(n) < n^2 < n^k < 2^n$
 \section{Sortieralgorithmen}
 \subsection {Bubblesort}
 \begin{itemize}
-\item Jeden Durchlauf wird das größte Element auf die n-ite Stelle getauscht. Jeder Vergleich ggf ein Swap.
+\item Jeden Durchlauf wird das gr{\"o}\ss te Element auf die n-ite Stelle getauscht. Jeder Vergleich ggf ein Swap.
 \item inkrementelle, inplace, stabil
 \item $BC: \Theta(n)\; AV: \Theta(n^2) \; WC: \Theta(n^2)$
 \end{itemize}
 
 \subsection{Insertionsort}
 \begin{itemize}
-\item Key wird in sortiertes Array eingeordnet. Key wird gemerkt, falls kleiner wird das gö\ss ere Element auf Pos von Key kopiert aber Key wird erst kopiert, wenn die richtige Stelle gefunden worden ist.
+\item Key wird in sortiertes Array eingeordnet. Key wird gemerkt, falls kleiner wird das g{\"o}\ss ere Element auf Pos von Key kopiert aber Key wird erst kopiert, wenn die richtige Stelle gefunden worden ist.
 \item inkrementelle, inplace, stabil
 \item $BC: \Theta(n)\; AV: \Theta(n^2) \; WC: \Theta(n^2)$ 
 \end{itemize}
 
 \subsection{Mergesort}
 \begin{itemize}
-\item Teile Array bis auf ein Element Array und sortiere beim rekursiven zusammenfügen. Geteilt wird p bis q, q+1 bis r. \\
-Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Zielarray ein.
+\item Teile Array bis auf ein Element Array und sortiere beim rekursiven zusammenf{\"u}gen. Geteilt wird p bis q, q+1 bis r. \\
+Merge vergleicht erste Pos von den Arrays und f{\"u}gt immer das kleinere ins Zielarray ein.
 \item D\&C, 
 \item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(nlog(n))\;$
 \end{itemize}
 
 \subsection{Quicksort(A,p,r)}
 \begin{itemize}
-\item Teile Array nach Pivotelement und füge Pivot dann an Grenze ein. Dann partition bis q-1 und 
+\item Teile Array nach Pivotelement und f{\"u}ge Pivot dann an Grenze ein. Dann partition bis q-1 und 
 \item D\&C, 
 \item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(n^2)\;$
 \end{itemize}
@@ -102,8 +102,8 @@ Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Ziela
 
 \begin{itemize}
 \item $ Heap := A[i] \geq A[2i] und A[i] \geq A[2i+1]$ \\
-\item jeder Knoten hat mindestens so großen Wert wie seine Kinder \\
-\item Wird als binärer Baum dargestellt. \newline
+\item jeder Knoten hat mindestens so gro\ss en Wert wie seine Kinder \\
+\item Wird als bin{\"a}rer Baum dargestellt. \newline
 \end{itemize}
 
 \subsection{Eigenschafen}
@@ -114,8 +114,8 @@ Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Ziela
 \end{itemize}
 \subsection{Heapify}
 \begin{itemize}
-\item Tausche mit größtem Kind
-\item wird auf getauschten Knoten erneu aufgerufen bis er richtit steht
+\item Tausche mit gr{\"o}\ss tem Kind
+\item wird auf getauschten Knoten erneut aufgerufen bis er richtit steht
 \end{itemize}
 \subsection{Build-Heap}
 \begin{itemize}
@@ -137,7 +137,7 @@ Danach Heapify(A[i ... i-1])\\
 
 \subsection{Bucket-Sort}
 \begin{itemize}
-\item Hänge $a_j$ an Liste L[$a_j$] an. Gebe alle Listen aus
+\item H{\"a}nge $a_j$ an Liste L[$a_j$] an. Gebe alle Listen aus
 \item stabil
 \item Zahlen aus \{1,...,m\} und O(n+m) und braucht O(n+m) Platz
 \end{itemize}
@@ -161,7 +161,7 @@ Danach Heapify(A[i ... i-1])\\
 
 \section{Doppelt verkettete Listen}
 \begin{itemize}
-\item Head(L), Insert(L,x)(hängt vorne dran), Remove(L,x)
+\item Head(L), Insert(L,x)(h{\"a}ngt vorne dran), Remove(L,x)
 \item key(x), next(x), prev(x)
 \item falls next(x) = nil, x letztes Element
 \end{itemize}
@@ -169,53 +169,53 @@ Danach Heapify(A[i ... i-1])\\
 \section{Skiplisten}
 \begin{itemize}
 \item verschiedene Niveaus 
-\item perfekte hat $ \lceil  log(n)\rceil$ Niveaus (ermöglicht binäre Suche)
+\item perfekte hat $ \lceil  log(n)\rceil$ Niveaus (erm{\"o}glicht bin{\"a}re Suche)
 \item left(v), right(v), down(v), up(v), Search(L,x), Insert(L,v) (mit RandomHight)
 \item Niveau 0, wo jeder Knoten ist ($2^0$)
 \item Niveau k behinaltet jeden $2^k$-ten Knoten
 \end{itemize}
 
-\section{Binäre Suchbäume}
-\subsection{Binäre Suchbäume}
+\section{Bin{\"a}re Suchb{\"a}ume}
+\subsection{Bin{\"a}re Suchb{\"a}ume}
 \begin{itemize}
 \item lc[x], rc[x], p[x],root[x]
-\item Inorder-Tree-Walk(x) gebe Knoten sortiert, nach abgeben, aus. \\ Gehe am Ende von ganz rechts zur Wurzel zurück. $\Theta(n)$
+\item Inorder-Tree-Walk(x) gebe Knoten sortiert, nach abgeben, aus. \\ Gehe am Ende von ganz rechts zur Wurzel zur{\"u}ck. $\Theta(n)$
 \item Baumsuche(x,k) meist mit x = root[T]
 \item Min/Max linkestes/rechtestes Element
-\item Nachfolger(x) linkestes Element im rechten Teilbaum. Wenn nicht verfügbar im Baum aufsteigen
+\item Nachfolger(x) linkestes Element im rechten Teilbaum. Wenn nicht verf{\"u}gbar im Baum aufsteigen
 \item Delete(x), x hat 2 Kinder, Nachfolger von x wird verschoben, ggf wiederholen
 \end{itemize}
 
-\subsection{Balancierte Suchbäume}
+\subsection{Balancierte Suchb{\"a}ume}
 \begin{itemize}
-\item Höhe höchstens $2log(n+1)-2$
-\item Rotation ändern nur Höhe
+\item H{\"o}he h{\"o}chstens $2log(n+1)-2$
+\item Rotation {\"a}ndern nur H{\"o}he
 \item Rechtsrota(T,x),Linksrota(T,x)
-\item Balance(t): \\Falls lc[t] und rc[lc[t]] größer dann Linksrota(lc[t]), sonst Rechtsrota(t) \\
-	Falls rc[t] und lc[rc[t]] größer dann Rechtsrota(rc[t]), sonst Linksrota(t)
+\item Balance(t): \\Falls lc[t] und rc[lc[t]] gr{\"o}\ss er dann Linksrota(lc[t]), sonst Rechtsrota(t) \\
+	Falls rc[t] und lc[rc[t]] gr{\"o}\ss er dann Rechtsrota(rc[t]), sonst Linksrota(t)
 \end{itemize}
 
 \section{Hashing}
 \subsection{Geschlossene Adressierung}
 \begin{itemize}
-\item Kollisionsuaflösung durch Listen
-\item Suchen/Löschen AV: $\Theta(1+\alpha)$, Falls  m= $\Theta(n)$ $.\Theta(1)$
+\item Kollisionsuafl{\"o}sung durch Listen
+\item Suchen/L{\"o}schen AV: $\Theta(1+\alpha)$, Falls  m= $\Theta(n)$ $.\Theta(1)$
 \end{itemize}
 
 
 \subsection{Offene Adressierung}
 \begin{itemize}
-\item (nächste) freie Stelle in der Hashtabelle
+\item (n{\"a}chste) freie Stelle in der Hashtabelle
 \item Lineares Hashing: $h(k,i) = (h'(k) +i) mod \; m$
 \item Quadratisches Hashing: $h(k,i) = (h'(k) +c_1i+ c_2 i^2) mod \; m$
 \item Delete problematisch, deshalb offene Adressierung bei Anwendungen ohne Delete nutzen
-\item falls zu viele deleted, dann neu hashen in größerer Tabelle(amortisierte Laufzeit)
+\item falls zu viele deleted, dann neu hashen in gr{\"o}\ss erer Tabelle(amortisierte Laufzeit)
 \end{itemize}
 
 \subsection{Kuckuckshashing}
 \begin{itemize}
 \item 2 Hashfunktionen mit eine Tabelle
-\item Insert: Falls belegt, neuen Wert einfügen und alten mit anderer Funktion neu hashen
+\item Insert: Falls belegt, neuen Wert einf{\"u}gen und alten mit anderer Funktion neu hashen
 \item max $d log(n)$ Hashversuche
 \end{itemize}
 
@@ -224,7 +224,7 @@ Danach Heapify(A[i ... i-1])\\
 \subsection{Adjazenzmatrix/liste}
 \begin{itemize}
 \item Zeile: von, Spalte: nach
-\item Zeile: von, Einträge: erreichende Knoten (einfach verkettete liste)
+\item Zeile: von, Eintr{\"a}ge: erreichende Knoten (einfach verkettete liste)
 \end{itemize}
 
 \subsection{SSSP}
@@ -232,8 +232,8 @@ Danach Heapify(A[i ... i-1])\\
 \begin{itemize}
 \item berechnet Abstand von allen Knoten zu s in einem ungewichteten Graphen
 \item d[u] ist der Abstand am Anfang $\infty$
-\item $\pi$[u] ist der Vorgänger am Anfang NIL
-\item Color[u] = weiß, grau,schwarz am Anfang weiß
+\item $\pi$[u] ist der Vorg{\"a}nger am Anfang NIL
+\item Color[u] = wei\ss, grau,schwarz am Anfang wei\ss
 \item Queue zum Speichern der grauen Knoten
 \item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
 \item entdeckt die Zusammenhangskomponenten
@@ -243,15 +243,15 @@ Danach Heapify(A[i ... i-1])\\
 \subsubsection{DFS}
 \begin{itemize}
 \item Neue Konten vom zuletzt gefundenen Knoten entdeckt. Fals alle adj[v] entdeckt gehe zu $\pi$[v]
-\item löst nicht SSSP, bildet Spannbaum
+\item l{\"o}st nicht SSSP, bildet Spannbaum
 \item d[u] ist der Abstand am Anfang $\infty$
-\item $\pi$[u] ist der Vorgänger am Anfang NIL
-\item Color[u] = weiß, grau,schwarz am Anfang weiß
+\item $\pi$[u] ist der Vorg{\"a}nger am Anfang NIL
+\item Color[u] = wei\ss, grau,schwarz am Anfang wei\ss
 \item Stack zum Speichern der grauen Knoten
-\item Baumkante: rot, Rückkante: grün (auf grauen), Sonstigekante: blau (auf schwarzen)
-\item G enthält einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine Rückwärtskante
+\item Baumkante: rot, R{\"u}ckkante: gr{\"u}n (auf grauen), Sonstigekante: blau (auf schwarzen)
+\item G enth{\"a}lt einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine R{\"u}ckw{\"a}rtskante
 \item DAG $\Leftrightarrow$ es existiert eine topologische Sortierung (alle Kanten einzeichnen)
-\item TopoligischesSorrtieren(G) legt eine Liste an und fügt die schwarzen Knoten vorne an
+\item TopoligischesSorrtieren(G) legt eine Liste an und f{\"u}gt die schwarzen Knoten vorne an
 \end{itemize}
 
 \subsection{Dijkstra}
@@ -268,7 +268,7 @@ Danach Heapify(A[i ... i-1])\\
 \end{itemize}
 \subsection{Bellman-Ford}
 \begin{itemize}
-\item ohne negative Zyklen erhält man kürzesten Pfad
+\item ohne negative Zyklen erh{\"a}lt man k{\"u}rzesten Pfad
 \item  Laufzeit $O(|V|^2+|V||E|)$ und Speicherbedarf $O(|V|^2)$
 \end{itemize}
 \subsection{APSP}
@@ -285,27 +285,27 @@ Danach Heapify(A[i ... i-1])\\
 \section{Greedy}
 \subsection{Allgemein}
 \begin{itemize}
-\item das zum Zeitpunkte beste auswählen, was man machen kann
-\item EDF für Scheduling Probleme
+\item das zum Zeitpunkte beste ausw{\"a}hlen, was man machen kann
+\item EDF f{\"u}r Scheduling Probleme
 \end{itemize}
  
 \subsection{Kruskal}
 \begin{itemize}
-\item gewichteter, ungerichteter, zusammenhängender Graph errechnet daraus einen MST
-\item Nimm Kante mit geringstem Gewicht, die zwei Bäume im aktuellen aufspannenden Wald verbindet und füge diese zu A hinzu
-\item rote Kante: Spannbaum, grüne Kante: ungebraucht
+\item gewichteter, ungerichteter, zusammenh{\"a}ngender Graph errechnet daraus einen MST
+\item Nimm Kante mit geringstem Gewicht, die zwei B{\"a}ume im aktuellen aufspannenden Wald verbindet und f{\"u}ge diese zu A hinzu
+\item rote Kante: Spannbaum, gr{\"u}ne Kante: ungebraucht
 \end{itemize}
 
-\subsection{Union-Find - SIEHE ÜBUNG}
+\subsection{Union-Find - SIEHE {\"u}BUNG}
 \begin{itemize}
-\item Jede Menge ist eine lineare Liste, die durch das erste Element repräsentiert wird
+\item Jede Menge ist eine lineare Liste, die durch das erste Element repr{\"a}sentiert wird
 \item doppelt verkettete Liste mit einem weiteren Zeiger auf den Kopf
-\item hänge kürzere Liste an längere Liste
+\item h{\"a}nge k{\"u}rzere Liste an l{\"a}ngere Liste
 \end{itemize}
 
 \subsection{Prim}
 \begin{itemize}
-\item Lässt einen Wald wachsen. Immer nur von bekannten Knoten aus auswählen
+\item L{\"a}sst einen Wald wachsen. Immer nur von bekannten Knoten aus ausw{\"a}hlen
 \item  Laufzeit $O(|E| log(|V|)$
 \end{itemize}
 
