@@ -268,8 +268,8 @@ Danach Heapify(A[i ... i-1])\\
 \end{itemize}
 \subsection{Bellman-Ford}
 \begin{itemize}
-\item ohne negative Zyklen => kürzesten Pfad
-\item $ Laufzeit O(|V|^2+|V||E|) und Speicherbedarf O(|V|^2)$
+\item ohne negative Zyklen erhält man kürzesten Pfad
+\item  Laufzeit $O(|V|^2+|V||E|)$ und Speicherbedarf $O(|V|^2)$
 \end{itemize}
 \subsection{APSP}
 \subsubsection{Floyd-Warshall(W,n)}
@@ -277,21 +277,44 @@ Danach Heapify(A[i ... i-1])\\
 \item Keine negative Zyklen
 \item Initialisiere Adjazenzmatrix mit 1 Nachbarknoten
 \item halte k mal Spalte K und Zeit K fest und guck, ob geringere Summen entstehen
+\item Laufzeit $O(|V|^3)$ mit Platz $O(|V|^2)$
+\end{itemize}
+
+
+
+\section{Greedy}
+\subsection{Allgemein}
+\begin{itemize}
+\item das zum Zeitpunkte beste auswählen, was man machen kann
+\item EDF für Scheduling Probleme
+\end{itemize}
+ 
+\subsection{Kruskal}
+\begin{itemize}
+\item gewichteter, ungerichteter, zusammenhängender Graph errechnet daraus einen MST
+\item Nimm Kante mit geringstem Gewicht, die zwei Bäume im aktuellen aufspannenden Wald verbindet und füge diese zu A hinzu
+\item rote Kante: Spannbaum, grüne Kante: ungebraucht
+\end{itemize}
+
+\subsection{Union-Find - SIEHE ÜBUNG}
+\begin{itemize}
+\item Jede Menge ist eine lineare Liste, die durch das erste Element repräsentiert wird
+\item doppelt verkettete Liste mit einem weiteren Zeiger auf den Kopf
+\item hänge kürzere Liste an längere Liste
+\end{itemize}
+
+\subsection{Prim}
+\begin{itemize}
+\item Lässt einen Wald wachsen. Immer nur von bekannten Knoten aus auswählen
+\item  Laufzeit $O(|E| log(|V|)$
 \end{itemize}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+Wir haben die Kapitel über Graphenalgorithmen und über Entwurfsmethoden für effiziente Algorithmen abgeschlossen Und haben das 
+Kapitel über Weitere Beispiele für Nutzung von Entwurfsmethoden begonnen, mit Divide& Conquer: Nächste Paare berechnen Thema heute: Weitere Beispiele
 
 
 \subsection{}
@@ -307,6 +330,8 @@ Danach Heapify(A[i ... i-1])\\
 \item logarithmus!!! bsp laufzeit aus probe 1
 \item Stirling'sche Formel $n! \approx (\frac{n}{e})^n \cdot \sqrt{2\pi n}$ \newline
 $ \Rightarrow  log(n!) \approx nlog(n)-nlog(e)$
+
+\item Union Find
 
 \end{itemize}
 
