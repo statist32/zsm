@@ -50,12 +50,12 @@ $a\cdot f(\frac{n}{b}) \leq \delta  \cdot f(n), \delta < 1, n \to \infty$ & \\
 \section{ O-Notation}
 \subsection{Definition}
 \begin{itemize}
-\item $f = O(g) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \; \forall n \geq n_0 : f(n) \leq c g(n)$ \newline (f wächst asymptotisch höchstens so schnell wie g)
+\item $f = O(g) \Leftrightarrow  \exists  c> 0 \exists n_0 \in N \; \forall n \geq n_0 : f(n) \leq c g(n)$ \\ (f wächst asymptotisch höchstens so schnell wie g)
 \item $f = \Omega(g) \Leftrightarrow g = O(f)$ \newline (f wachst asymptotisch mindestens so schnell wie g)
 
 \item f = $\Theta (g) \Leftrightarrow f = O(g) \; und \; g = O(f)$ \newline
 (f und g wachsen asymptotisch gleich schnell)
-\item $f = o(g) \Leftrightarrow \forall c > 0 \; \exists n_0 \in N \forall n\geq n_0 : f(n) < c g(n)$ \newline 
+\item $f = o(g) \Leftrightarrow \forall c > 0 \; \exists n_0 \in N \forall n\geq n_0 : f(n) < c g(n)$ \\ 
 $ \lim\limits_{n \to \infty}\frac{f(n)}{g(n)} = 0 $\newline (f wächst asymptotisch langsamer als g)
 \item $f = \omega(g) \Leftrightarrow g = o(f)$ \newline (f wächst asymptotisch langsamer als g)
 \end{itemize}
@@ -84,7 +84,7 @@ $c < log(n) < n^{\frac{1}{k}} < n < n log(n) < n^2 < n^k < 2^n$
 
 \subsection{Mergesort}
 \begin{itemize}
-\item Teile Array bis auf ein Element Array und sortiere beim rekursiven zusammenfügen. Geteilt wird p bis q, q+1 bis r. \newline
+\item Teile Array bis auf ein Element Array und sortiere beim rekursiven zusammenfügen. Geteilt wird p bis q, q+1 bis r. \\
 Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Zielarray ein.
 \item D\&C, 
 \item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(nlog(n))\;$
@@ -94,29 +94,185 @@ Merge vergleicht erste Pos von den Arrays und fügt immer das kleinere ins Ziela
 \begin{itemize}
 \item Teile Array nach Pivotelement und füge Pivot dann an Grenze ein. Dann partition bis q-1 und 
 \item D\&C, 
-\item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(n^2))\;$
+\item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(n^2)\;$
 \end{itemize}
 
 \section{Heap}
 \subsection{Definition}
-$ Heap := A[i] \geq A[2i] und A[i] \geq A[2i+1]$ \newline
-jeder Knoten hat mindestens so großen Wert wie seine Kinder \newline
-Wird als binärer Baum dargestellt. \newline
+
+\begin{itemize}
+\item $ Heap := A[i] \geq A[2i] und A[i] \geq A[2i+1]$ \\
+\item jeder Knoten hat mindestens so großen Wert wie seine Kinder \\
+\item Wird als binärer Baum dargestellt. \newline
+\end{itemize}
+
 \subsection{Eigenschafen}
 \begin{itemize}
 \item Baumtiefe $\lfloor log(n)\rfloor$
 \item $A[\lfloor \frac{n}{2} \rfloor +1] \; bis \; A[n]$ sind Kinder
 \item Maximum ist die Wurzel A[1]
 \end{itemize}
+\subsection{Heapify}
+\begin{itemize}
+\item Tausche mit größtem Kind
+\item wird auf getauschten Knoten erneu aufgerufen bis er richtit steht
+\end{itemize}
 \subsection{Build-Heap}
-\subsection{Sort-Heap}
+\begin{itemize}
+\item Bei uns meist MaxHeap
+\item Heapify auf $A[\lfloor \frac{n}{2} \rfloor] \; downto  \;A[1]$
+\item $BC: \Theta(n)\; AV:\Theta(n)\; WC: \Theta(n)\;$
+\item \#Vertauschungen $\leq \sum_{i=1}^{\lfloor \frac{n}{2} \rfloor} (log(n) -log(i))$
+\item \#Vergleiche $\leq$ \#Vertauschungen
+\end{itemize}
+
+\subsection{Heap-Sort}
+\begin{itemize}
+\item Build-Heap
+\item Sort-Heap \\
+$Vertausche A[1] und A[i]$\\
+Danach Heapify(A[i ... i-1])\\
+\item $BC: \Theta(nlog(n))\; AV:\Theta(nlog(n))\; WC: \Theta(nlog(n))\;$
+\end{itemize}
+
+\subsection{Bucket-Sort}
+\begin{itemize}
+\item Hänge $a_j$ an Liste L[$a_j$] an. Gebe alle Listen aus
+\item stabil
+\item Zahlen aus \{1,...,m\} und O(n+m) und braucht O(n+m) Platz
+\end{itemize}
+
+\section{Dynamische Arrays}
+\begin{itemize}
+\item Falls Array A nicht mehr ausreicht (n>w). Verdoppel Array 
+\item Falls $\frac{1}{4} and n>0$ Halbiere Array
+\end{itemize}
+
+\section{Stack}
+\begin{itemize}
+\item Empty(S), Pop(S), Push(S), Top(S)(Pos)
+\end{itemize}
+
+\section{Queue}
+\begin{itemize}
+\item Enqueue,Dequeue, Head(Q), Tail(Q)(erste freie Pos)
+\item falls Array vonn starte bei 1, falls frei
+\end{itemize}
+
+\section{Doppelt verkettete Listen}
+\begin{itemize}
+\item Head(L), Insert(L,x)(hängt vorne dran), Remove(L,x)
+\item key(x), next(x), prev(x)
+\item falls next(x) = nil, x letztes Element
+\end{itemize}
+
+\section{Skiplisten}
+\begin{itemize}
+\item verschiedene Niveaus 
+\item perfekte hat $ \lceil  log(n)\rceil$ Niveaus (ermöglicht binäre Suche)
+\item left(v), right(v), down(v), up(v), Search(L,x), Insert(L,v) (mit RandomHight)
+\item Niveau 0, wo jeder Knoten ist ($2^0$)
+\item Niveau k behinaltet jeden $2^k$-ten Knoten
+\end{itemize}
+
+\section{Binäre Suchbäume}
+\subsection{Binäre Suchbäume}
+\begin{itemize}
+\item lc[x], rc[x], p[x],root[x]
+\item Inorder-Tree-Walk(x) gebe Knoten sortiert, nach abgeben, aus. \\ Gehe am Ende von ganz rechts zur Wurzel zurück. $\Theta(n)$
+\item Baumsuche(x,k) meist mit x = root[T]
+\item Min/Max linkestes/rechtestes Element
+\item Nachfolger(x) linkestes Element im rechten Teilbaum. Wenn nicht verfügbar im Baum aufsteigen
+\item Delete(x), x hat 2 Kinder, Nachfolger von x wird verschoben, ggf wiederholen
+\end{itemize}
+
+\subsection{Balancierte Suchbäume}
+\begin{itemize}
+\item Höhe höchstens $2log(n+1)-2$
+\item Rotation ändern nur Höhe
+\item Rechtsrota(T,x),Linksrota(T,x)
+\item Balance(t): \\Falls lc[t] und rc[lc[t]] größer dann Linksrota(lc[t]), sonst Rechtsrota(t) \\
+	Falls rc[t] und lc[rc[t]] größer dann Rechtsrota(rc[t]), sonst Linksrota(t)
+\end{itemize}
+
+\section{Hashing}
+\subsection{Geschlossene Adressierung}
+\begin{itemize}
+\item Kollisionsuaflösung durch Listen
+\item Suchen/Löschen AV: $\Theta(1+\alpha)$, Falls  m= $\Theta(n)$ $.\Theta(1)$
+\end{itemize}
+
+
+\subsection{Offene Adressierung}
+\begin{itemize}
+\item (nächste) freie Stelle in der Hashtabelle
+\item Lineares Hashing: $h(k,i) = (h'(k) +i) mod \; m$
+\item Quadratisches Hashing: $h(k,i) = (h'(k) +c_1i+ c_2 i^2) mod \; m$
+\item Delete problematisch, deshalb offene Adressierung bei Anwendungen ohne Delete nutzen
+\item falls zu viele deleted, dann neu hashen in größerer Tabelle(amortisierte Laufzeit)
+\end{itemize}
+
+\subsection{Kuckuckshashing}
+\begin{itemize}
+\item 2 Hashfunktionen mit eine Tabelle
+\item Insert: Falls belegt, neuen Wert einfügen und alten mit anderer Funktion neu hashen
+\item max $d log(n)$ Hashversuche
+\end{itemize}
+
+
+\section{Graphentheorie}
+\subsection{Adjazenzmatrix/liste}
+\begin{itemize}
+\item Zeile: von, Spalte: nach
+\item Zeile: von, Einträge: erreichende Knoten (einfach verkettete liste)
+\end{itemize}
+
+\subsection{SSSP}
+\subsubsection{BFS}
+\begin{itemize}
+\item berechnet Abstand von allen Knoten zu s in einem ungewichteten Graphen
+\item d[u] ist der Abstand am Anfang $\infty$
+\item $\pi$[u] ist der Vorgänger am Anfang NIL
+\item Color[u] = weiß, grau,schwarz am Anfang weiß
+\item Queue zum Speichern der grauen Knoten
+\item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
+\item entdeckt die Zusammenhangskomponenten
+\item O(|V|+|E|)
+\end{itemize}
+
+\subsubsection{DFS}
+\begin{itemize}
+\item Neue Konten vom zuletzt gefundenen Knoten entdeckt. Fals alle adj[v] entdeckt gehe zu $\pi$[v]
+\item löst nicht SSSP, bildet Spannbaum
+\item d[u] ist der Abstand am Anfang $\infty$
+\item $\pi$[u] ist der Vorgänger am Anfang NIL
+\item Color[u] = weiß, grau,schwarz am Anfang weiß
+\item Stack zum Speichern der grauen Knoten
+\item Baumkante: rot, Rückkante: grün (auf grauen), Sonstigekante: blau (auf schwarzen)
+\item G enthält einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine Rückwärtskante
+\item DAG $\Leftrightarrow$ es existiert eine topologische Sortierung (alle Kanten einzeichnen)
+\item TopoligischesSorrtieren(G) legt eine Liste an und fügt die schwarzen Knoten vorne an
+\end{itemize}
+
+\subsection{Dijkstra}
+\begin{itemize}
+\item kein negativer Kreis aber gewichtet
+\item setze alle Knoten auf $\infty$ und update alle adj(u) mit dem Gewicht, dalls geringer als aktueller Wert
+\item
+\item
+\item
+
+\end{itemize}
 
 
 
 
 
 
-
+\subsection{}
+\begin{itemize}
+\item
+\end{itemize}
 
 
 
@@ -124,6 +280,8 @@ Wird als binärer Baum dargestellt. \newline
 \begin{itemize}
 \item Arithmetische Reihe $\sum_{i=1}^n k  = \frac{n(n+1)}{2} $
 \item logarithmus!!! bsp laufzeit aus probe 1
+\item Stirling'sche Formel $n! \approx (\frac{n}{e})^n \cdot \sqrt{2\pi n}$ \newline
+$ \Rightarrow  log(n!) \approx nlog(n)-nlog(e)$
 
 \end{itemize}
 
