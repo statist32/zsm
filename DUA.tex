@@ -1,14 +1,14 @@
 \documentclass{article}
 \begin{document}
 \small
-\section{Invariante}
+\section{Grundlagen}
+\subsection{Invartiante}
 \begin{itemize}
 \item Vorm ersten Durchlauf erf{\"u}llt sein (Initialisierung, Induktionsanfang)
 \item Muss bei jedem Schleifendurchlauf erhalten bleiben (Erhaltng, Induktionsschritt)
 \item Invar nach Beendigung der Schleife zeigt Korrektheit (Terminierung)
 \end{itemize}
 
- 
 
 \subsection{allgemeines Mastertheorem}
 
@@ -202,7 +202,6 @@ Danach Heapify(A[i ... i-1])\\
 \subsection{SSSP}
 \subsubsection{BFS}
 \begin{itemize}
-
 \item Queue zum Speichern der grauen Knoten
 \item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
 \item entdeckt die Zusammenhangskomponenten
@@ -210,13 +209,11 @@ Danach Heapify(A[i ... i-1])\\
 
 \subsubsection{DFS}
 \begin{itemize}
-\item Neue Konten vom zuletzt gefundenen Knoten entdeckt. Fals alle adj[v] entdeckt gehe zu $\pi$[v]
-\item l{\"o}st nicht SSSP, bildet Spannbaum
 \item Stack zum Speichern der grauen Knoten
+\item l{\"o}st nicht SSSP, bildet Spannbaum
 \item Baumkante: rot, R{\"u}ckkante: gr{\"u}n (auf grauen), Sonstigekante: blau (auf schwarzen)
 \item G enth{\"a}lt einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine R{\"u}ckw{\"a}rtskante
 \item DAG $\Leftrightarrow$ es existiert eine topologische Sortierung (alle Kanten einzeichnen)
-\item TopoligischesSortieren(G) legt eine Liste an und f{\"u}gt die schwarzen Knoten vorne an
 \end{itemize}
 
 \subsubsection{Dijkstra}
@@ -285,14 +282,9 @@ Prim& $O(|E| log(|V|)$ & unger,zsmh & MST& wachsen\\
 \item Geometrische Reihe $\sum_{i=0}^n q^i = \frac{1-q^{n+1}}{1-q}$
 \item Stirling'sche Formel $n! \approx (\frac{n}{e})^n \cdot \sqrt{2\pi n}$ 
 \item $log_a(P) = \frac{log_b(P)}{log_b(a)}$
-\item $a^{log_b(n)} = n^{log_b(a)}$
 \item $4^{log(n^2)} = 4^{2log(n)} =2^{4log(n)} = n^{4log(2)} = n^4 $
 
 
-
-
-
-\item Set Cover problem
 
 
 \end{itemize}
