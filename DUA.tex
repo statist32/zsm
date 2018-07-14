@@ -263,19 +263,19 @@ Bucket& Inkrementell & Nein & Ja & $\Theta(n+k)$ & $\Theta(n+k)$ & $\Theta(n^2)$
 \end{tabular}
 
 \subsection{Graphenalgos}
-\tiny{
+
 \begin{tabular}{c|c|c|c|c}
 
 Algo & Laufzeit & Bedingung & Return & Funktionsweise \\ \hline
-BFS(G,s) &$|V|+|E|$ & keine Gewicht& d[v] & Queue\\
-DFS(G,s)& $|V|+|E|$ & keine Gewicht & Tiefenswald& Stack \\
-Dijkstra(G,w,s)& $(|V|+|E|)log(|V|)$ & no neg Gewicht& SSSP& vom min Koten aus updaten \\
-BellmanFord(G,s)& $O(|V|^2+|V|\cdot|E|)$ &no neg Zyklen &SSSP & Jede Iteration Knoten abgehen, \\
-&&&&ggf next[Knoten] updaten\\ 
-Floyd-Warshall(W,n)& $O(|V|^3)$ &no neg Zyklen& APSP & Spalte/Reihe festhalten \\ 
-Kruskal(G)& $|E|\cdot log(|E|)$ & unger, zsmh& MST& min Kante \\ 
-Prim(G,r)& $O(|E| log(|V|)$ & unger, zsmh & MST& wachsen\\ 
-\end{tabular}}
+BFS &$|V|+|E|$ & keine Gew& d[v] & Queue\\
+DFS& $|V|+|E|$ & keine Gew & Tiefenwald& Stack \\
+Dijkstra& $(|V|+|E|)log(|V|)$ & no neg Gew& SSSP& vom min Koten updaten \\
+BellmanFord& $O(|V|^2+|V|\cdot|E|)$ &no neg Zyk &SSSP & Je Iteration Knoten  \\
+&&&& abgehen, adj[Knoten] updaten\\ 
+FloydWarshall& $O(|V|^3)$ &no neg Zyk& APSP & Spalte/Reihe festhalten \\ 
+Kruskal& $|E|\cdot log(|E|)$ & unger,zsmh& MST& min Kante \\ 
+Prim& $O(|E| log(|V|)$ & unger,zsmh & MST& wachsen\\ 
+\end{tabular}
 
 
 
