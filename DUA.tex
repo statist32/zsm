@@ -8,30 +8,9 @@
 \end{itemize}
 
  
-\subsection{Rekursionsgleichungen}
-\begin{itemize}
-\item ineinander einsetzen
-\item Summe erkennen und zusammengefasst aufschreiben
-\item $k=log(n)$ beachten und vereinfachen
-\end{itemize}
-\subsection{Mastertheorem}
-\subsubsection{Additives Mastertheorem}
-\begin{itemize}
-\item $ a,b,c \; positiv \; n= b^k$
-\item $T (n) \leq \left\{
-\begin{array}{ll}
-c & n  = 1 \\
-a\cdot T(\frac{n}{b}) +c & \, n>1 \\
-\end{array}
-\right. $
-\end{itemize}
-\begin{tabular}{l l  l}
 
-$T(n) \leq c\cdot \frac{a}{a-1}n^{log_b(a)} - \frac{c}{a-1}  $&$= O(n^{log_b(a)}) $&$ \; falls \; a>1$ \\
-$T(n) \leq c\cdot \frac{a}{a-1}n - \frac{c}{a-1} $&$ = O(n)  $& $\; falls \; a=b>1$\\
-$T(n) \leq c\cdot log_b(n) +c  $&$= O(log(n)) $&$\; falls \; a=1$\\
-\end{tabular}
-\subsubsection {allgemeines Mastertheorem}
+\subsection{allgemeines Mastertheorem}
+
 \begin{itemize}
 \item $a,b,d,q \geq  1$
 \item $T (n) \leq \left\{
@@ -96,9 +75,9 @@ Merge vergleicht erste Pos von den Arrays und f{\"u}gt immer das kleinere ins Zi
 \subsection{Definition}
 
 \begin{itemize}
-\item $ Heap := A[i] \geq A[2i] und A[i] \geq A[2i+1]$ \\
-\item jeder Knoten hat mindestens so gro\ss en Wert wie seine Kinder \\
-\item Wird als bin{\"a}rer Baum dargestellt. \newline
+\item $ Heap := A[i] \geq A[2i] und A[i] \geq A[2i+1]$ 
+\item jeder Knoten hat mindestens so gro\ss en Wert wie seine Kinder 
+\item Wird als bin{\"a}rer Baum dargestellt.
 \end{itemize}
 
 \subsection{Eigenschafen}
@@ -118,7 +97,7 @@ Merge vergleicht erste Pos von den Arrays und f{\"u}gt immer das kleinere ins Zi
 \item Heapify auf $A[\lfloor \frac{n}{2} \rfloor] \; downto  \;A[1]$
 \item $BC: \Theta(n)\; AV:\Theta(n)\; WC: \Theta(n)\;$
 \item \#Vertauschungen $\leq \sum_{i=1}^{\lfloor \frac{n}{2} \rfloor} (log(n) -log(i))$
-\item \#Vergleiche $\leq$ \#Vertauschungen
+\item \#Vergleiche $\leq$ 2 \#Vertauschungen
 \end{itemize}
 
 \subsection{Heap-Sort}
@@ -132,14 +111,12 @@ Danach Heapify(A[i ... i-1])\\
 \subsection{Bucket-Sort}
 \begin{itemize}
 \item H{\"a}nge $a_j$ an Liste L[$a_j$] an. Gebe alle Listen aus
-\item stabil
-\item Zahlen aus \{1,...,m\} und O(n+m) und braucht O(n+m) Platz
 \end{itemize}
 
 \section{Dynamische Arrays}
 \begin{itemize}
 \item Falls Array A nicht mehr ausreicht (n>w). Verdoppel Array 
-\item Falls $\frac{1}{4} and n>0$ Halbiere Array
+\item Falls $\frac{1}{4} \; und \; n>0$ Halbiere Array
 \end{itemize}
 
 \section{Stack}
@@ -180,7 +157,7 @@ Danach Heapify(A[i ... i-1])\\
 \item Delete(x), x hat 2 Kinder, Nachfolger von x wird verschoben, ggf wiederholen
 \end{itemize}
 
-\subsection{Balancierte Suchb{\"a}ume}
+\subsection{Balancierte Suchb{\"a}ume (AVL)}
 \begin{itemize}
 \item H{\"o}he h{\"o}chstens $2log(n+1)-2$
 \item Rotation {\"a}ndern nur H{\"o}he
@@ -208,7 +185,7 @@ Danach Heapify(A[i ... i-1])\\
 
 \subsection{Kuckuckshashing}
 \begin{itemize}
-\item 2 Hashfunktionen mit eine Tabelle
+\item 2 Hashfunktionen mit je einer Tabelle
 \item Insert: Falls belegt, neuen Wert einf{\"u}gen und alten mit anderer Funktion neu hashen
 \item max $d log(n)$ Hashversuche
 \end{itemize}
@@ -224,57 +201,40 @@ Danach Heapify(A[i ... i-1])\\
 \subsection{SSSP}
 \subsubsection{BFS}
 \begin{itemize}
-\item berechnet Abstand von allen Knoten zu s in einem ungewichteten Graphen
-\item d[u] ist der Abstand am Anfang $\infty$
-\item $\pi$[u] ist der Vorg{\"a}nger am Anfang NIL
-\item Color[u] = wei\ss, grau,schwarz am Anfang wei\ss
+
 \item Queue zum Speichern der grauen Knoten
 \item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
 \item entdeckt die Zusammenhangskomponenten
-\item $O(|V|+|E|)$
 \end{itemize}
 
 \subsubsection{DFS}
 \begin{itemize}
 \item Neue Konten vom zuletzt gefundenen Knoten entdeckt. Fals alle adj[v] entdeckt gehe zu $\pi$[v]
 \item l{\"o}st nicht SSSP, bildet Spannbaum
-\item d[u] ist der Abstand am Anfang $\infty$
-\item $\pi$[u] ist der Vorg{\"a}nger am Anfang NIL
-\item Color[u] = wei\ss, grau,schwarz am Anfang wei\ss
 \item Stack zum Speichern der grauen Knoten
 \item Baumkante: rot, R{\"u}ckkante: gr{\"u}n (auf grauen), Sonstigekante: blau (auf schwarzen)
 \item G enth{\"a}lt einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine R{\"u}ckw{\"a}rtskante
 \item DAG $\Leftrightarrow$ es existiert eine topologische Sortierung (alle Kanten einzeichnen)
-\item TopoligischesSorrtieren(G) legt eine Liste an und f{\"u}gt die schwarzen Knoten vorne an
+\item TopoligischesSortieren(G) legt eine Liste an und f{\"u}gt die schwarzen Knoten vorne an
 \end{itemize}
 
-\subsection{Dijkstra}
+\subsubsection{Dijkstra}
 \begin{itemize}
-\item kein negativer Kreis aber gewichtet
 \item setze alle Knoten auf $\infty$ und update alle adj(u) mit dem Gewicht, dalls geringer als aktueller Wert
-\item Laufzeit mit Heaps:$O((|V|+|E|)log(|V|))$
 \end{itemize}
 
 
-\section{Dynamische Programmierung}
+\subsubsection{Bellman-Ford}
 \begin{itemize}
-\item Berechne die Funktionswerte iterativ und bottom-up und nutze Teilergebnisse
-\end{itemize}
-
-\subsection{Bellman-Ford}
-\begin{itemize}
-\item ohne negative Zyklen erh{\"a}lt man k{\"u}rzesten Pfad
-\item  Laufzeit $O(|V|^2+|V||E|)$ und Speicherbedarf $O(|V|^2)$
 \item $|V|-1$ Zeilen und Knoten als Spalten 
 \item Gucke, ob neuer $Weg+E$ kleiner ist als alter Weg
 \end{itemize}
+
 \subsection{APSP}
 \subsubsection{Floyd-Warshall(W,n)}
 \begin{itemize}
-\item Keine negative Zyklen
 \item Initialisiere Adjazenzmatrix mit 1 Nachbarknoten
 \item halte k mal Spalte K und Zeit K fest und guck, ob geringere Summen entstehen
-\item Laufzeit $O(|V|^3)$ mit Platz $O(|V|^2)$
 \end{itemize}
 
 
@@ -288,16 +248,13 @@ Danach Heapify(A[i ... i-1])\\
  
 \subsection{U-F-Kruskal}
 \begin{itemize}
-\item gewichteter, ungerichteter, zusammenh{\"a}ngender Graph errechnet daraus einen MST
 \item Nimm Kante mit geringstem Gewicht, die zwei B{\"a}ume im aktuellen aufspannenden Wald verbindet und f{\"u}ge diese zu A hinzu
-\item rote Kante: Spannbaum, gr{\"u}ne Kante: ungebraucht
 \end{itemize}
 
 
 \subsection{Prim}
 \begin{itemize}
 \item L{\"a}sst einen Wald wachsen. Immer nur von bekannten Knoten aus ausw{\"a}hlen
-\item  Laufzeit $O(|E| log(|V|)$
 \end{itemize}
 
 \section{Uebersicht}
@@ -314,14 +271,15 @@ Bucket& Inkrementell & Nein & Ja & $\Theta(n+k)$ & $\Theta(n+k)$ & $\Theta(n^2)$
 \end{tabular}
 
 \subsection{Graphenalgos}
-
+\small
 \begin{tabular}{c|c|c|c|c}
 
 Algo & Laufzeit & Bedingung & Return & Funktionsweise \\ \hline
 BFS(G,s) &$|V|+|E|$ & keine Gewicht& d[v] & Queue\\
 DFS(G,s)& $|V|+|E|$ & keine Gewicht & Tiefenswald& Stack \\
 Dijkstra(G,w,s)& $(|V|+|E|)log(|V|)$ & no neg Gewicht& SSSP& vom min Koten aus updaten \\
-BellmanFord(G,s)& $O(|V|^2+|V|\cdot|E|)$ &no neg Zyklen &SSSP & Jede Iteration Knoten abgehen und ggf next[Knoten] updaten\\ 
+BellmanFord(G,s)& $O(|V|^2+|V|\cdot|E|)$ &no neg Zyklen &SSSP & Jede Iteration Knoten abgehen, \\
+&&&&ggf next[Knoten] updaten\\ 
 Floyd-Warshall(W,n)& $O(|V|^3)$ &no neg Zyklen& APSP & Spalte/Reihe festhalten \\ 
 Kruskal(G)& $|E|\cdot log(|E|)$ & unger, zsmh& MST& min Kante \\ 
 Prim(G,r)& $O(|E| log(|V|)$ & unger, zsmh & MST& wachsen\\ 
@@ -329,21 +287,12 @@ Prim(G,r)& $O(|E| log(|V|)$ & unger, zsmh & MST& wachsen\\
 \end{tabular}
 
 
-\subsection{}
-\begin{itemize}
-\item
-\end{itemize}
-
-
 
 \section{Rechentricks}
 \begin{itemize}
 \item Arithmetische Reihe $\sum_{i=1}^n k  = \frac{n(n+1)}{2} $
 \item Geometrische Reihe $\sum_{i=0}^n q^i = \frac{1-q^{n+1}}{1-q}$
-\item logarithmus!!! bsp laufzeit aus probe 1
-\item Stirling'sche Formel $n! \approx (\frac{n}{e})^n \cdot \sqrt{2\pi n}$ \newline
-$ \Rightarrow  log(n!) \approx nlog(n)-nlog(e)$
-\item $log((\frac{P}{Q})^k) = k \cdot log(\frac{P}{Q}) = k \cdot (log(P) - log(Q)) $
+\item Stirling'sche Formel $n! \approx (\frac{n}{e})^n \cdot \sqrt{2\pi n}$ 
 \item $log_a(P) = \frac{log_b(P)}{log_b(a)}$
 \item $a^{log_b(n)} = n^{log_b(a)}$
 \item $4^{log(n^2)} = 4^{2log(n)} =2^{4log(n)} = n^{4log(2)} = n^4 $
