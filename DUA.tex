@@ -1,5 +1,6 @@
 \documentclass{article}
 \begin{document}
+\small
 \section{Invariante}
 \begin{itemize}
 \item Vorm ersten Durchlauf erf{\"u}llt sein (Initialisierung, Induktionsanfang)
@@ -237,22 +238,13 @@ Danach Heapify(A[i ... i-1])\\
 \item halte k mal Spalte K und Zeit K fest und guck, ob geringere Summen entstehen
 \end{itemize}
 
-
-
-\section{Greedy}
-\subsection{Allgemein}
-\begin{itemize}
-\item das zum Zeitpunkte beste ausw{\"a}hlen, was man machen kann
-\item EDF f{\"u}r Scheduling Probleme
-\end{itemize}
- 
-\subsection{U-F-Kruskal}
+\subsection{MST}
+\subsubsection{U-F-Kruskal}
 \begin{itemize}
 \item Nimm Kante mit geringstem Gewicht, die zwei B{\"a}ume im aktuellen aufspannenden Wald verbindet und f{\"u}ge diese zu A hinzu
 \end{itemize}
 
-
-\subsection{Prim}
+\subsubsection{Prim}
 \begin{itemize}
 \item L{\"a}sst einen Wald wachsen. Immer nur von bekannten Knoten aus ausw{\"a}hlen
 \end{itemize}
@@ -271,7 +263,7 @@ Bucket& Inkrementell & Nein & Ja & $\Theta(n+k)$ & $\Theta(n+k)$ & $\Theta(n^2)$
 \end{tabular}
 
 \subsection{Graphenalgos}
-\small
+\tiny{
 \begin{tabular}{c|c|c|c|c}
 
 Algo & Laufzeit & Bedingung & Return & Funktionsweise \\ \hline
@@ -283,8 +275,7 @@ BellmanFord(G,s)& $O(|V|^2+|V|\cdot|E|)$ &no neg Zyklen &SSSP & Jede Iteration K
 Floyd-Warshall(W,n)& $O(|V|^3)$ &no neg Zyklen& APSP & Spalte/Reihe festhalten \\ 
 Kruskal(G)& $|E|\cdot log(|E|)$ & unger, zsmh& MST& min Kante \\ 
 Prim(G,r)& $O(|E| log(|V|)$ & unger, zsmh & MST& wachsen\\ 
-
-\end{tabular}
+\end{tabular}}
 
 
 
