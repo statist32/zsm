@@ -203,8 +203,12 @@ Danach Heapify(A[i ... i-1])\\
 \subsubsection{BFS}
 \begin{itemize}
 \item Queue zum Speichern der grauen Knoten
+\item Kürzester Weg von s zu v
+\item alle grauen Knoten sind in Q
+\item
 \item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
-\item entdeckt die Zusammenhangskomponenten
+\item berechnet die Zusammenhangskomponenten
+\item 
 \end{itemize}
 
 \subsubsection{DFS}
@@ -214,6 +218,7 @@ Danach Heapify(A[i ... i-1])\\
 \item Baumkante: rot, R{\"u}ckkante: gr{\"u}n (auf grauen), Sonstigekante: blau (auf schwarzen)
 \item G enth{\"a}lt einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine R{\"u}ckw{\"a}rtskante
 \item DAG $\Leftrightarrow$ es existiert eine topologische Sortierung (alle Kanten einzeichnen)
+\item 
 \end{itemize}
 
 \subsubsection{Dijkstra}
