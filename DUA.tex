@@ -2,7 +2,7 @@
 \begin{document}
 \small
 \section{Grundlagen}
-\subsection{Invartiante}
+\subsection{Invariante}
 \begin{itemize}
 \item Vorm ersten Durchlauf erf{\"u}llt sein (Initialisierung, Induktionsanfang)
 \item Muss bei jedem Schleifendurchlauf erhalten bleiben (Erhaltng, Induktionsschritt)
@@ -153,8 +153,6 @@ Danach Heapify(A[i ... i-1])\\
 \item lc[x], rc[x], p[x],root[x]
 \item Inorder-Tree-Walk(x) gebe Knoten sortiert, nach abgeben, aus. \\ Gehe am Ende von ganz rechts zur Wurzel zur{\"u}ck. $\Theta(n)$
 \item Baumsuche(x,k) meist mit x = root[T]
-\item Min/Max linkestes/rechtestes Element
-\item Nachfolger(x) linkestes Element im rechten Teilbaum. Wenn nicht verf{\"u}gbar im Baum aufsteigen
 \item Delete(x), x hat 2 Kinder, Nachfolger von x wird verschoben, ggf wiederholen
 \end{itemize}
 
@@ -163,8 +161,7 @@ Danach Heapify(A[i ... i-1])\\
 \item H{\"o}he h{\"o}chstens $2log(n+1)-2$
 \item Rotation {\"a}ndern nur H{\"o}he
 \item Rechtsrota(T,x),Linksrota(T,x)
-\item Balance(t): \\Falls lc[t] und rc[lc[t]] gr{\"o}\ss er dann Linksrota(lc[t]), sonst Rechtsrota(t) \\
-	Falls rc[t] und lc[rc[t]] gr{\"o}\ss er dann Rechtsrota(rc[t]), sonst Linksrota(t)
+\item bei delete Vorgänger auswählen
 \end{itemize}
 
 \section{Hashing}
@@ -202,28 +199,20 @@ Danach Heapify(A[i ... i-1])\\
 \subsection{SSSP}
 \subsubsection{BFS}
 \begin{itemize}
-\item Queue zum Speichern der grauen Knoten
-\item Kürzester Weg von s zu v
-\item alle grauen Knoten sind in Q
-\item
+\item Kürzester Weg von s zu v, Zusammenhangskomponenten
 \item BFS entdeckt alle Knoten $v\in V$, die von s aus erreichbar sind
-\item berechnet die Zusammenhangskomponenten
-\item 
 \end{itemize}
 
 \subsubsection{DFS}
 \begin{itemize}
-\item Stack zum Speichern der grauen Knoten
-\item l{\"o}st nicht SSSP, bildet Spannbaum
-\item Baumkante: rot, R{\"u}ckkante: gr{\"u}n (auf grauen), Sonstigekante: blau (auf schwarzen)
+\item l{\"o}st nicht SSSP, bildet Spannbaum, entdeckt alle erreichbaren Knoten
 \item G enth{\"a}lt einen Kreis $\Leftrightarrow$ DFS(G) erzeugt mindestens eine R{\"u}ckw{\"a}rtskante
 \item DAG $\Leftrightarrow$ es existiert eine topologische Sortierung (alle Kanten einzeichnen)
-\item 
 \end{itemize}
 
 \subsubsection{Dijkstra}
 \begin{itemize}
-\item setze alle Knoten auf $\infty$ und update alle adj(u) mit dem Gewicht, dalls geringer als aktueller Wert
+\item setze Knoten auf $\infty$  au\ss er s und update adj(u) mit dem Gewicht, falls geringer 
 \end{itemize}
 
 
@@ -231,24 +220,6 @@ Danach Heapify(A[i ... i-1])\\
 \begin{itemize}
 \item $|V|-1$ Zeilen und Knoten als Spalten 
 \item Gucke, ob neuer $Weg+E$ kleiner ist als alter Weg
-\end{itemize}
-
-\subsection{APSP}
-\subsubsection{Floyd-Warshall(W,n)}
-\begin{itemize}
-\item Initialisiere Adjazenzmatrix mit 1 Nachbarknoten
-\item halte k mal Spalte K und Zeit K fest und guck, ob geringere Summen entstehen
-\end{itemize}
-
-\subsection{MST}
-\subsubsection{U-F-Kruskal}
-\begin{itemize}
-\item Nimm Kante mit geringstem Gewicht, die zwei B{\"a}ume im aktuellen aufspannenden Wald verbindet und f{\"u}ge diese zu A hinzu
-\end{itemize}
-
-\subsubsection{Prim}
-\begin{itemize}
-\item L{\"a}sst einen Wald wachsen. Immer nur von bekannten Knoten aus ausw{\"a}hlen
 \end{itemize}
 
 \section{Uebersicht}
@@ -269,23 +240,21 @@ Bucket& Inkrementell & Nein & Ja & $\Theta(n+k)$ & $\Theta(n+k)$ & $\Theta(n^2)$
 \begin{tabular}{c|c|c|c|c}
 
 Algo & Laufzeit & Bedingung & Return & Funktionsweise \\ \hline
-BFS &$|V|+|E|$ & keine Gew& d[v] & Queue\\
+BFS &$|V|+|E|$ & keine Gew& Zshkompo & Queue\\
 DFS& $|V|+|E|$ & keine Gew & Tiefenwald& Stack \\
 Dijkstra& $(|V|+|E|)log(|V|)$ & no neg Gew& SSSP& vom min Koten updaten \\
-BellmanFord& $O(|V|^2+|V|\cdot|E|)$ &no neg Zyk &SSSP & Je Iteration Knoten  \\
+BellmanFord& $|V|^2+|V|\cdot|E|$ &no neg Zyk &SSSP & Je Iteration Knoten  \\
 &&&& abgehen, adj[Knoten] updaten\\ 
-FloydWarshall& $O(|V|^3)$ &no neg Zyk& APSP & Spalte/Reihe festhalten \\ 
+FloydWarshall& $|V|^3$ &no neg Zyk& APSP & Spalte/Reihe festhalten \\ 
 Kruskal& $|E|\cdot log(|E|)$ & unger,zsmh& MST& min Kante \\ 
-Prim& $O(|E| log(|V|)$ & unger,zsmh & MST& wachsen\\ 
+Prim& $|E| log(|V|)$ & unger,zsmh & MST& Baum wachsen lassen\\ 
 \end{tabular}
-
 
 
 \section{Rechentricks}
 \begin{itemize}
 \item Arithmetische Reihe $\sum_{i=1}^n k  = \frac{n(n+1)}{2} $
 \item Geometrische Reihe $\sum_{i=0}^n q^i = \frac{1-q^{n+1}}{1-q}$
-\item Stirling'sche Formel $n! \approx (\frac{n}{e})^n \cdot \sqrt{2\pi n}$ 
 \item $log_a(P) = \frac{log_b(P)}{log_b(a)}$
 \item $4^{log(n^2)} = 4^{2log(n)} =2^{4log(n)} = n^{4log(2)} = n^4 $
 
