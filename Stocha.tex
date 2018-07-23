@@ -19,12 +19,101 @@
 \end{itemize}
 
 
+\subsection{Gemeinsame und bedingte Wahrscheinlichkeiten}
+\begin{itemize}
+\item$P(EF) = P(E\cap F)$
+\item $P(E|F) = \frac{P(EF)}{P(F)}$
+\item $P(EF) = P(E|F)P(F)$
+\end{itemize}
 
 
 
 
+\subsection{statistische Unabhängigkeit}
+\begin{itemize}
+\item $P(EF) = P(E) P(F)$
+\end{itemize}
+
+\subsection{Bayes-Regel}
+\begin{itemize}
+\item $P(F|E) = \frac{P(E|F) P(F)}{P(E|F) P(F)+P(E|\overline{F})P(\overline{F})}$
+\end{itemize}
 
 
+\subsection{Gesetz der Gesamtwsk}
+\begin{itemize}
+\item $P(F) = \sum_{i=1}^K P(F|E_i)P(E_i)$
+\end{itemize}
+
+
+
+\subsection{Diskrete Zufallsbvariablen}
+
+\begin{itemize}
+\item Eine Zufallsvaribale ZV $X(\omega)$ ist eine Funktion, die jedem möglichen \newline Ergebnis $\omega \in \Omega$ eines Zufallsexperimentes eine reelle Zahl $X(\omega)$ zuordnet.
+\item Jede reelle Zahl $X(\omega)$ hate eine zugehörige Wahrscheinlichkeit.\newline Wir schreiben diese als $P(X(\omega) = x) = P_X(x)$
+\item $P(4\leq X \leq 6) = P(X\leq 6) -P(X \leq 3)$
+\end{itemize}
+
+\subsection{Wahrscheinlichkeitsverteilung}
+\begin{itemize}
+\item $P_X(x) \hat{=} P(X=x)$
+\item $ 0 \leq P_X(x) \leq 1$
+\item $\sum_X P_X(x) = 1$
+\end{itemize}
+
+\subsection{Poisson-ZV}
+\begin{itemize}
+\item $P_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}$
+\item
+\end{itemize}
+
+
+\subsection{Zwei diskrete ZV}
+\begin{tabular}{c | c}
+WskVerteilung & Formel \\ \hline
+Gemeinsame & $P_{XY}(x,y) \hat{=} P(X=x,Y=y)$\\
+Bedingte& $P_{X|Y}(x|y) = \frac{P_{XY}(x,y)}{P_Y(y)}$\\
+Rand & $P_X(x,y) = \sum_Y P_{XY}(x,y)$\\
+
+\end{tabular}
+
+\subsection{binomial Verteilung}
+\begin{itemize}
+\item $P_X(k) = {n \choose k} p^k (1-p)^{n-k} = \frac{n!}{k! (n-k)!} p^k (1-p)^{n-k} $
+\end{itemize}
+
+\subsection{Erwartungswerte und Momente}
+\begin{tabular}{c|c}
+& Formel \\ \hline
+Durchschnitt & $\mu = \frac{1}{n}\sum_{i=1}^L g_i N_i$ \\
+quadratische Abw. & $\sigma ^2 = \frac{1}{n} \sum_{i=1}^L (g_i-\mu)^2N_i$ \\
+Mittelwert & $\mu_X = E\{X\} \hat{=} \sum_X xP_X(x)$ \\
+Varianz & $var(X) \hat{=} E{(X-\mu_X)^2} = \sum_X (x-\mu_X)^2P_X(x)$\\
+Standard Abw. & $\sigma_X = \sqrt{var(X)}$\\
+Korrelation & $\mu_{XY} = E\{XY\} = \sum_X \sum_Y xyP_{XY}(x,y)$\\
+Kovarianz & $\sigma_{XY} = E\{(X-\mu_X)(Y-\mu_Y)\} =\sum_X \sum_Y (x-\mu_X)(y-\mu_Y)P_{XY}(x,y) $\\
+Linearität & $E\{aX+bY\} = aE\{X\} + bE\{Y\}$ \\
+\end{tabular}
+\subsection{Unkorreliertheit}
+\begin{itemize}
+\item $E\{XY\} = E\{X\}E\{Y\}$, d.h $ \sigma_{XY} = 0$, dann sind X und Y unkorreliert
+\item statistische Unabhängigkeit bedeutet Unkorreliertheit aber \textbf{nicht umgekehrt}
+\item Korrelationskoeffizient $\rho_{XY} = \frac{\sigma_{XY}}{\sigma_X \sigma_Y}$
+\item $-1\leq  \rho_{XY} \leq  1$
+\end{itemize}
+
+\subsection{Lineare Schätzung}
+\begin{itemize}
+\item opt Schätzer, der MSE minimiert: \newline $\hat{Y} = \mu_Y + \rho_{XY}\frac{\sigma_Y}{\sigma_X} (X-\mu_x) $
+\item dessen MSE = $\sigma_Y^2(1-\rho_{XY}^2)$
+\end{itemize}
+
+\subsection{}
+\begin{itemize}
+\item Stichprobenmw: $\hat{\mu}_n = \frac{1}{n} \sum_{i=1}^n x_i$
+\item Stichprobenvar: $\hat{\sigma}_n^2 = \frac{1}{n-1} \sum_{i=1}^n(x_i-\hat{\mu}_n)^2$
+\end{itemize}
 
 
 
