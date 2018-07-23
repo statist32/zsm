@@ -1,5 +1,5 @@
 \documentclass{article}
-
+\usepackage{amsmath}
 \begin{document}
 \section{Kombinatorik}
 \begin{tabular}{c| c |c}
@@ -65,7 +65,6 @@
 \subsection{Poisson-ZV}
 \begin{itemize}
 \item $P_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}$
-\item
 \end{itemize}
 
 
@@ -89,7 +88,7 @@ Rand & $P_X(x,y) = \sum_Y P_{XY}(x,y)$\\
 Durchschnitt & $\mu = \frac{1}{n}\sum_{i=1}^L g_i N_i$ \\
 quadratische Abw. & $\sigma ^2 = \frac{1}{n} \sum_{i=1}^L (g_i-\mu)^2N_i$ \\
 Mittelwert & $\mu_X = E\{X\} \hat{=} \sum_X xP_X(x)$ \\
-Varianz & $var(X) \hat{=} E{(X-\mu_X)^2} = \sum_X (x-\mu_X)^2P_X(x)$\\
+Varianz & $var(X) \hat{=} E\{(X-\mu_X)^2\} = \sum_X (x-\mu_X)^2P_X(x)$\\
 Standard Abw. & $\sigma_X = \sqrt{var(X)}$\\
 Korrelation & $\mu_{XY} = E\{XY\} = \sum_X \sum_Y xyP_{XY}(x,y)$\\
 Kovarianz & $\sigma_{XY} = E\{(X-\mu_X)(Y-\mu_Y)\} =\sum_X \sum_Y (x-\mu_X)(y-\mu_Y)P_{XY}(x,y) $\\
@@ -116,18 +115,18 @@ Linearität & $E\{aX+bY\} = aE\{X\} + bE\{Y\}$ \\
 \end{itemize}
 
 
-\subsection{Zeitdiskrete Markoff-Ketten}
-\subsubsection{Definition}
+\section{Zeitdiskrete Markoff-Ketten}
+\subsection{Definition}
 
 Eine Folge von ganzwertigen ZVn. \newline
-Ereigniss = Zustand \newline
+Ereignis = Zustand \newline
 Zeithomogen, wenn keine Abhängikeit von der Zeit besteht \newline
-$P(X_{n+1} = j | X_n = i) sind Übergangswahrscheinlichkeiten$ \newline
+$P(X_{n+1} = j | X_n = i)$ sind Übergangswahrscheinlichkeiten \newline
 $P(X_n = i)$ sind Zustandwahrscheinlichkeiten \newline
 $P(X_{n+1} = | X_n = i_n , ..., X_0 = i_0) = P(X_{n+1} = i_{i+1} | X_n = i_n)$
 
 
-\subsubsection{station{\"a}re Verteilung}
+\subsection{station{\"a}re Verteilung}
 \begin{itemize}
 \item $q_n = q_0 P^n$
 \item Station{\"a}re Verteilung, wenn $\pi = \pi P$ 
@@ -137,25 +136,133 @@ $P(X_{n+1} = | X_n = i_n , ..., X_0 = i_0) = P(X_{n+1} = i_{i+1} | X_n = i_n)$
 \item Eine irreduzible, aperiodische Kette mit einer endlichen Anzahl von Zuständen hat eine eindeutige stationäre Verteilung.
 \end{itemize}
 
-\subsubsection{Berechnung der stationären Verteilung}
+\subsection{Berechnung der stationären Verteilung}
 
 
-\subsection{Stetige Zufallsvariablen}
-\subsubsection{Wkdichte- und kumulative Verteilungsfunktionen}
-kummulative Verteilungsfunktion $F_X (x) \hat{=}  P(X \leq x ) = \int_{-\infty}^x f_x(\xi)d\xi $ \newline
-Wahrscheinlichkeitsdichtefunktion $f_X(x) = \frac{d}{dx} F_X(x)$
+\section{Stetige Zufallsvariablen}
+\subsection{Wkdichte- und kumulative Verteilungsfunktionen}
+\begin{tabular}{c | c}
+Funktion & Formel \\ \hline
+kummulative Verteilungs& $F_X (x) \hat{=}  P(X \leq x ) = \int_{-\infty}^x f_x(\xi)d\xi $ \\
+Wskdichte  &$f_X(x) = \frac{d}{dx} F_X(x)$\\
+\end{tabular}
 
-\paragraph{Eigenschaften}
+\subsubsection{Eigenschaften}
 \begin{itemize}
 \item $P(a < X \leq b) = P(X\le b) - P(X \le a) = F_X (b) - F_X(a)$
 \item $P(X > a) = 1-P(X \le a) = 1- F_X(a)$
 \item $F_X(x) $ ist nicht abnehmend
-\item$ f_x(x) \ge 0 $
+\item$ f_x(x) \ge 0 $ aber nicht notwendigerweise $f_X(x) \leq 1$
  \item $F_X (-\infty) = 0$ und $ F_X(\infty) = \int_{-\infty}^\infty f_X(x) dx =1$
-
-
 \end{itemize}
 
+\subsection{Zwei Zufallsvariablen}
+\begin{tabular}{r l}
+
+gem. k. Vf.& $F_{XY} (x,y) = P(X \leq x, Y\leq y)$\\
+gem. Wdf. & $f_{xy}(x,y) = \frac{\partial}{\partial_x} \frac{\partial}{\partial_y} F_{XY}(x,y)$\\
+Rand-Wdf. & $F_X(x) = \int_{-\infty}^\infty f_{XY}(x,y) dy$\\
+bedingte Wdf. & $f_{X|Y}(x|y) = \frac{F_{XY}(x,y)}{f_Y(y)}$\\
+
+\end{tabular}
+\subsection{statistische Unabh{\"a}ngikgeit}
+\begin{itemize}
+\item $F_{XY}(x,y) = F_X(x)F_Y(y)$ 
+\item $f_{XY}(x,y) = f_X(x)f_Y(y)$ 
+\item $f_{X|Y}(x|y) = f_X(x) $ 
+\end{itemize}
+
+\subsection{Erwartungswerte}
+\subsubsection{Eine stetige ZV}
+
+\begin{tabular}{c | c}
+Erwartungswert Operator & $E\{g(X)\} \hat{=} \int_{-\infty}^\infty g(x)f_X(x) dc$ \\
+Moment 1. Ordnung & $ \mu_X = E\{X\} = \int_{-\infty}^\infty xf_X(x) dx$ \\
+Moment 2. Ordnung& $ \mu_{x^2} = E\{X^2\} = \int_{-\infty}^\infty x^2f_X(x) dx$ \\
+Varianz& $ var(x) = \sigma_x^2 = E\{(X-{\mu_X})^2\}$ \\
+\end{tabular}
+\subsubsection{Zwei stetige ZVn}
+
+\begin{tabular}{c | c}
+& $E\{g(X,Y)\} = \int_{-\infty}^\infty \int_{-\infty}^\infty g(x,y)f_{XY}(x,y) dx dy$ \\
+Korrelation& $\mu_{XY} = E\{XY\} = \int_{-\infty}^\infty \int_{-\infty}^\infty xyf_{XY}(x,y) dx dy$ \\
+Kovarianz & $\sigma_{XY} = E\{(X-\mu_x)(Y-\mu_y)\} =\int_{-\infty}^\infty \int_{-\infty}^\infty (X-\mu_x)(Y-\mu_y)f_{XY}(x,y) dx dy $\\
+\end{tabular}
+
+\subsection{Tscherbyscheff Ungleichung}
+Sie X eine ZV mit dem Mittelwert $\mu_X$ und einer endlichen Varianz $\sigma_X^2$. Für ein beliebiges $\delta >0$
+$$P[|X-\mu_x|\geq \delta] \leq frac{\sigma_X^2}{\delta^2}$$
+
+\subsection{Wichtige Verteilungen}
+\subsubsection{Gleichverteilung}
+ 
+$
+    f_X(x) = \begin{cases}
+               \frac{1}{b-a}   & a \le x \le b\\
+               0 & \text{sonst}
+           \end{cases}
+$
+\subsubsection {Exponentialverteilung}
+$
+    f_X(x) = \begin{cases}
+               \lambda e^{-\lambda x}   &  x \geq 0\\
+               0 & \text{sonst}
+           \end{cases}
+$ $\quad$
+$           
+            F_X(x) = \begin{cases}
+               1- e^{-\lambda x}   &  x \geq 0\\
+               0 & \text{sonst}
+           \end{cases}
+$
+
+\subsubsection{Gau\ss-Verteilung (Normalverteilung)}
+$$X \sim N(\mu_X,\sigma_X^2)$$
+$$f_X(x) = \frac{1}{\sqrt{2\pi} \sigma_X}exp({-\frac{1}{2}(\frac{x-\mu_x}{\sigma_X})^2})$$
+\begin {tabular}{c c}
+ & $\phi(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty e^{-\frac{s^2}{2}} ds$  \\
+ Fehlerfunktion & $erf(z) = \frac{2}{\sqrt{\pi}}\int_0^z e^{-s^2}ds$\\
+ komplementäre Fehlerfunktion & $erfc(z) = 1-erf(z) = \frac{2}{\sqrt{\pi}}\int_z^\infty e^{-s^2}ds  = 2\phi(-\sqrt{2}z)$\\
+ Q-Funktion & $Q(z) = 1-\phi(z) = \frac{1}{2}erfc(\frac{z}{\sqrt{2}})$ \\
+ \end{tabular}
+\subsubsection{Eigenschaften}
+\begin{itemize}
+\item vollständig bestimmt durch Mittelwert und Varianz
+\item Wenn X und Y gem. Gau\ss-verteilt sind und unkorreliert sind, dann sind sie unabhängig
+\item Wenn X und Y gem. Gau\ss-verteilt sind, dann sind auch die Randverteilungen Gau\ss isch
+\item Wenn X und Y gem. Gau\ss-verteilt sind, dann ist es X|Y auch
+\item Wenn X Gau\ss-verteilt ist, dann ist aX+b auch (mit $ Mittelwert \: a\mu_X + b \: und \: Varianz \: a2^2\sigma_X^2$)
+
+\end{itemize}
+\subsection{Momenterzeugende Funktion}
+$$\phi(s) = E\{e^{sX}\} = \int_{\infty}^{\infty}e°{sx} f_X(x) dx,\quad s \in C $$
+\subsubsection{n-te Moment}
+$$E\{X^n\} = \frac{d^n}{ds^n} \phi(s)|_{s=0}$$
+\subsubsection{Charakteristische Funktion}
+$$\psi(\omega) = E\{e^{j\omega X}\} = \int_{-\infty}^{\infty} e^{j\omega x}f_X(x) dx =  \psi(j\omega), \quad \omega \in R$$
+\begin {itemize}
+\item  Die c.F existiert immer, weil $|\psi(\omega)| = |E\{ e^{j\omega X}\}| \le E\{e^{j\omega X}|\} = 1$
+\item Aufgrund der Symmetrie der FT $\psi(\omega) = \psi^*(-\omega)$
+\item c.F. ist reel (und gerade) genau dann wenn die Wdf. gerade ist: $f_X(x) = f_X(-x)$
+\item weil $\psi(\omega) = \psi(j\omega)$, können wir die Momente auch mit der c.F erzeugen: $E\{X^n\} = \frac{d^n}{d\omega^n}(-j)^n\psi(\omega)|_{\omega = 0}$
+\end{itemize}
+\subsection{Gesetz der gro\ss en Zahlen und zentraler Grenzwertsatz}
+\subsubsection{schwaches Gesetz der gro\ss en Zahlen}
+$\hat{\mu}_N = \frac{1}{N} \sum_{n = 1}^N X_n$
+\subsection{Zentraler Grenzwertsatz}
+$Z = \frac{1}{\sqrt{N}}\sum_{n = 1}^N(X_n -\mu)$
+
+\section {Statistik}
+\subsection{Parameterschätzung}
+\begin{tabular}{c c }
+Stichprobe& Reihe von Messungen \\
+Statistik & beliebige Funktion der Daten \\
+Stichprobenmittel & $\hat{M}_n = \frac{1}{n} \sum_{i=1}^n$\\
+Stichprobenvarianz & $\hat{\sum}_n^2 = \frac{1}{n-1} \sum_{i = 1}^n(X_i-\hat{M}_n)^2$ \\
+		& $\hat{\sum}_n^2 = \frac{1}{n} \sum_{i = 1}^n(X_i-\hat{\mu_X}_n)^2$
+\end{tabular}
+\subsubsection{Erwartungstreue und Konsistenz}
+Wenn das Mittel des Schätzers dem Mittelwert des Parameters, den er schätz, entspricht, dann nennen wir den Schätzer \textbf{ erwartungstreu}.
 
 
 
