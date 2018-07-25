@@ -259,10 +259,47 @@ Stichprobe& Reihe von Messungen \\
 Statistik & beliebige Funktion der Daten \\
 Stichprobenmittel & $\hat{M}_n = \frac{1}{n} \sum_{i=1}^n$\\
 Stichprobenvarianz & $\hat{\sum}_n^2 = \frac{1}{n-1} \sum_{i = 1}^n(X_i-\hat{M}_n)^2$ \\
-		& $\hat{\sum}_n^2 = \frac{1}{n} \sum_{i = 1}^n(X_i-\hat{\mu_X}_n)^2$
+		& $\hat{\sum}_n^2 = \frac{1}{n} \sum_{i = 1}^n(X_i-\hat{\mu}_X)^2$
 \end{tabular}
-\subsubsection{Erwartungstreue und Konsistenz}
+\subsection{Erwartungstreue und Konsistenz}
 Wenn das Mittel des Schätzers dem Mittelwert des Parameters, den er schätz, entspricht, dann nennen wir den Schätzer \textbf{ erwartungstreu}.
+
+
+
+\subsection{Erwartungstreue und Konsistenz}
+\begin{itemize}
+\item $ E[\hat{M}_n] = \frac{1}{n} \sum_{i=1}^n \mu_X = \mu_X$
+\item $E[\hat{\sum}_n^2] = \sigma_X^2$
+\item Stichproben mittel und -varianz sind konstistente Schätzer von Ensemble-Mittel und Varianz
+\item Erwartungstreue $\neq$ Konsistenz
+\end{itemize}
+
+
+
+\subsection{Konfidenzintervalle}
+\begin{itemize}
+\item Wir schreiben $\mu_X = \hat{M}_n \pm $ mit $100(1-\alpha)\% Wsk$
+\item wenn wir meinen $P(\mu_X \in [\hat{M}_n - \delta,\hat{M}_n + \delta]) = 1 -\alpha $
+\item Konfidenzintervall: $ [\hat{M}_n - \delta,\hat{M}_n + \delta]$
+\item Konfidenzniveau: $1-\alpha$
+\end{itemize}
+
+
+\subsection{Hypothesentest für das Mittel}
+\begin{itemize}
+\item $\mu \leq \mu_0$ oder  $ \mu > \mu_0$ 
+\item $\mu =\mu_0$ oder $\mu \neq \mu_0$ 
+\item Fehler 1. Art (falscher Alarm) Entscheidung für $H_1$, obwohl $H_0$ wahr ist
+\item Fehler 2. Art (versäumte Detektion) Entscheidung für $H_0$, obwohl $H_1$ wahr ist
+\item einseitiger Test: $y_\alpha$
+\item zweiseitiger Test: $y_\frac{\alpha}{2}$
+\end{itemize}
+
+\subsection{Histogramm}
+\begin{itemize}
+\item Schätzung einer WskVerteilunf -dichte wie oft BEobachtungen in eine Klasse fallen
+\end{itemize}
+
 
 
 
@@ -273,14 +310,6 @@ Wenn das Mittel des Schätzers dem Mittelwert des Parameters, den er schätz, en
 \item
 \item
 \end{itemize}
-
-
-
-
-
-
-
-
 
 
 
