@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{bm}
 \begin{document}
 \section{Kombinatorik}
 \begin{tabular}{c| c |c}
@@ -300,8 +301,79 @@ Wenn das Mittel des Schätzers dem Mittelwert des Parameters, den er schätz, en
 \item Schätzung einer WskVerteilunf -dichte wie oft BEobachtungen in eine Klasse fallen
 \end{itemize}
 
+\section{Zufallsvektoren}
+\subsection{Bivariante Gau\ss verteilung}
+\begin{itemize}
+\item gemeinsam gau\ss isch $f_{XY}(x,y) = \\
+ \frac{1}{2\pi\sigma_X\sigma_Y \sqrt{1-\rho_{XY}^2}} exp\{- \frac{1}{2(1-\rho_{XY}^2)} [(\frac{x-\mu_x}{\sigma_X})^2 - 2\rho_{XY} \frac{(x-\mu_x)(y-\mu_y)}{\sigma_X\sigma_Y}+(\frac{y-\mu_y}{\sigma_Y})^2] \}$
+\item Randverteilung $f_X(x) = \int_{-\infty}^{\infty} f_{XY}(x,y) dy = \frac{1}{\sqrt{2\pi}\sigma_X} exp\{ - \frac{1}{2} (\frac{x-\mu_X}{\sigma_X})^2\}$
+\item Wenn X und Y unkorreliert sind, d.h. $\rho_{XY} = 0$ ,dann ist $f_{XY}(x,y) = f_X(x)f_Y(y)$, d.h. X und Y sind unabgängig
+\end{itemize}
+
+\subsection{Bedingte Gau\ss - Wdf.}
+\begin{itemize}
+\item$F{Y|X}(y|x) = \frac{f_{XY}}{f_X(x)}$
+\item Gau\ss isch Mittel  $E\{Y|X=x\} = \mu_Y + \rho_{XY} \frac{\sigma_Y}{\sigma_X}(x-\mu_x)$
+\item Varianz $\sigma_Y^2(1-\rho_{XY}^2)$
+\item Für $\hat{Y} = E\{Y|X\} ist \hat{Y} = aX+b$, der lin Schätzer, $E\{(\hat{Y}-Y)^2\}$ MSE
+\end{itemize}
+
+\subsection{Gemeinsame Verteilungen und Dichten}
+\begin{itemize}
+\item Sei $\textbf{X} = [X_1, ..., X_n]^T, \textbf{Y} = [Y_1, ..., Y_n]^T$
+\item  k. Vf $F_\textbf{X}(\textbf{x}) = P(X_1 \leq x_1, ..., X_n \leq x_n) $
+\item  Wdf $f_\textbf{X}(\textbf{x}) = \frac{\partial}{\partial_{x_1}} ... \frac{\partial}{\partial_{x_n}} F_\textbf{X}(\textbf{x})$
+\item gem  k. Vf $F_\textbf{XY}(\textbf{x,y}) = P(X_1 \leq x_1, ..., X_n \leq x_n, Y_1 \leq y_1, ..., Y_n \leq y_n) $
+\item gem Wdf $f_\textbf{XY}(\textbf{x,y}) = \frac{\partial}{\partial_{x_1}} ... \frac{\partial}{\partial_{x_n}} \frac{\partial}{\partial_{y_1}} ... \frac{\partial}{\partial_{y_n}}F_\textbf{XY}(\textbf{x,y})$
+\end{itemize}
+
+\subsection{Momente}
+\begin{itemize}
+\item $\mu_{X_i} = E\{X_i\}, i = 1, ...,n$
+\item $\sigma_{X_i}^2 = E\{(X_i - \mu_{X_i})^2 \}$
+\item $\sigma_{X_i X_j} = E\{ (X_i-\mu_{x_i})(X_j-\mu_{X_j})\}$
+\end{itemize}
+
+\subsection{Mittelwertvektor und Kovarianz}
+\begin{itemize}
+\item  \bm{$\mu_X$} = $E \{ \bm{X} \} $
+\item $\bm{R_{XX}} = E\{(\bm{X}- \bm{\mu_X})(\bm{X}- \bm{\mu_X})^T  \} = E\{\bm{XX}^T \}-\bm{\mu_X\mu_X}^T$
+\item Element (i,j) von $\bm{R_{XX}}$ ist die Kovarianz zwischen $X_i X_j$
+\item $\bm{R_{XX}}$ ist symmetrisch: $\bm{R_{XX}} = \bm{R_{XX}}^T$
+\end{itemize}
 
 
+\subsection{Kovarianzmatrix}
+\begin{itemize}
+\item Korrelationsmatrix: $ E\{\bm{XX}^T\}$
+\item Kreuz-Kovar: $\bm{R_{XY}} = E\{ \bm{(X-\mu_X)(Y-\mu_Y)}^T \}$
+\item Unkorreliert: $E\{ \bm{XY}^T\} = E\{ \bm{X}\}E\{\bm{Y}^T\}$ bedeutet aber nicht unabhängig
+\item orthogional $E\{\bm{XY}^T\} = 0$
+\item Kovar, Korrelationsmatrizen sind symmetrisch und pos semidefinit: \\ $\bm{z}^T \bm{R_{XX}z}\geq 0 \;\forall \bm{z \neq 0}$
+\end{itemize}
+
+
+\subsection{Transformation von Zufallsvektoren}
+\begin{itemize}
+\item Sei $\bm{y = g(x)}$, g invertierbar mit inverser Funktion h \\ $f_ {\bm{Y}}(\bm{y}) = f_{\bm{X}}(\bm{h(y)})|det(J_{\bm{h}}(\bm{y}) |$
+\item
+\end{itemize}
+
+\subsection{Multivariante Gau\ss Verteilung}
+\begin{itemize}
+\item n-dim Wdf $f_{\bm{X}}(\bm{x}) = \frac{1}{(2\pi)^{\frac{n}{2}}\sqrt{det(\bm{R_{XX}})}}exp\{-\frac{1}{2}(\bm{x-\mu_x})^T \bm{R_{XX}^{-1}(x-\mu_X)} \}$
+\end{itemize}
+
+\subsection{Verhalten bei linearer Transformation}
+\begin{itemize}
+\item Sei $\bm{A}$ eine m x n Matrix vom Rang m. Dann Zufallsvektor $\bm{Y} = A \bm{X}$ eine m-dim Gau\ss Verteilung mit MWvek $\bm{\mu_Y} = A \bm{\mu_X}$ und Kovarmat $\bm[{R_{YY} = A R _{XX} A}^T$
+\end{itemize}
+
+\subsection{bedingte Wdf}
+\begin{itemize}
+\item $f_{X|Y}(x|y)$ ist gau\ss isch mit Mittelwertvek $\bm{W_y}$ und Kovarmat $\bm{Q}$
+\item $f_{X|Y}(x|y) = \frac{1}{(2\pi)^{\frac{n}{2}}\sqrt{det(\bm{Q)}}}exp\{(\bm{x-W_y})^T \bm{Q}^{-1}(\bm{x}-\bm{W}_y) \} $
+\end{itemize}
 
 
 
