@@ -375,13 +375,96 @@ Wenn das Mittel des Schätzers dem Mittelwert des Parameters, den er schätz, en
 \item $f_{X|Y}(x|y) = \frac{1}{(2\pi)^{\frac{n}{2}}\sqrt{det(\bm{Q)}}}exp\{(\bm{x-W_y})^T \bm{Q}^{-1}(\bm{x}-\bm{W}_y) \} $
 \end{itemize}
 
-
-
-\subsection{}
+\section{Zufallsprozess}
 \begin{itemize}
-\item
-\item
+\item Zufallsprozess (ZP, stochastisches Signal) ist eine Schar/Ensemble von Musterfunktionen
+\item Jede Musterfunktion(Beobachtung) $x_n(t)$ ist deterministisch
+\item Für einen Zeitpunkt $t=t_0$ wird aus dem ZP $X(t)$ eine Zufallsvariable $Z = X(t_0)$
+\item gibt es zeitkontinuierlich udn diskret
 \end{itemize}
+
+\subsection{Statistik}
+
+\begin{tabular}{c |c }
+Funktion & Formel \\ \hline
+kum. Vert. & $F_{X(t)}(x) \hat{=}P(X(t) \leq x )$\\
+wdf & $f_{X(t)}(x) \hat{=} \frac{d}{dx}F_{X(t)}(x) $\\
+gem kum. & $F_{X(t_1)X(t_2)}(x_1,x_2) \hat{=}P(X(t_1) \leq x_1, X(t_2) \leq x_2)  $\\
+gem. Wdf & $f_{X(t_1)X(t_2)}(x_1,x_2) \hat{=} \frac{\partial^2}{\partial x_1 \; \partial x_2}F_{X(t_1)X(t_2)}(x_1,x_2) $
+
+\end{tabular}
+
+\subsection{Momentfunktionen}
+\begin{tabular}{c |c}
+Funktion & Formel \\ \hline
+Mittelwert & $\mu_X(t) \hat{=} E[X(t)] = \int_{-\infty}^\infty x f_{X(t)}(x) dx$\\
+AutoKorrelation &$ m_{xx}(t_1,t_2) \hat{=} E[X(t_1)X(t_2)] = \int\int_{-\infty}^\infty x_1x_2f_{X(t_1)X(t_2)}(x_1,x_2)dx_1 dx_2$\\
+AutoKovar& $C_c(t) \hat{=} X(t)-\mu_X(t):$ \\
+& $r_{xx}/t_1,t_2) \hat{=} E[X_c(t_1)X_c(t_2)] = E[(X(t_1)-\mu_X(t_1))(X(t_2)-\mu_X(t_2))]$ \\
+& $r_{XX}(t_1.t_2) = m_{xx}(t_1,t_2) - \mu_X(t_1)\mu_X(t_2)$ \\
+\end{tabular}
+
+\subsection{WSS Prozesse}
+\begin{itemize}
+\item Ein ZP ist WSS, wenn sein Mittel zeitinvariant ist und seine AKF verschiebungsinvariant ist
+\item Sei $t_1 = t + \tau$ udn $ t_2 = t$ Dann ist AKF verschiebungsinvariant, wenn sie nur von der Zeitverschiebung $\tau$ abghängt \\
+$m_{XX} \hat{=} E[X(t+\tau)X(t)] = \int\int_{-\infty}^\infty x_1x_2f_{X(t+\tau)X(t)}(x_1,x_2)dx_1 dx_2 $
+\item $r_{XX}(\tau) = m_{XX}(\tau)=-\mu_X^2$
+\end{itemize}
+
+
+\subsection{Gem. Momentfunktion}
+\begin{itemize}
+\item$m_{XY} \hat{=} E[X(t+\tau)Y(t)] = \int\int_{-\infty}^\infty xyf_{X(t+\tau)Y(t)}(x,y)dx_1 dy $
+\item $r_{XY}(\tau) \hat{=} E[X_C(t+\tau)Y_C(t)] = E[(X(t+\tau)-\mu_X)(Y(t)-\mu_Y)]$
+\item $r:{XY}(\tau) = m_{XY}(\tau) -\mu_X\mu_Y$
+\item X(t) und Y(t) können einzeln WSS sein, ohne gemeinsam WSS zu sein
+\end{itemize}
+
+
+\subsection{Eigenschaften der Korrelationsfunktion}
+\begin{itemize}
+\item $|m_{XY}(\tau)| \leq \sqrt{m_{XX}(0)m_{YY}(0)}$
+\item$|m_{XX}(\tau)| \leq m_{XX}(0) = P:X =$ Leistung von $X(t)$, welche für WSS konstant
+\item $m_{XX}(\tau) = m_{XX}(-\tau)$ (reell und gerade)
+\item $ \forall \tau \; m_{XY}(\tau) = 0 \Rightarrow$ orthogonal
+\item $ \forall \tau \; m_{XY}(\tau) = \mu_X  \mu_Y \Rightarrow $  unkorreliert
+\end{itemize}
+
+
+\subsection{Ergodizität}
+\begin{tabular}{ c |c}
+Ergodizität & Formel \\ \hline
+Mittel & $\hat{\mu}_X \hat{=} \frac{1}{2T} \int _{-T}^T x(t)dt \; {T \to \infty} \; \mu_X(\tau) = E[X(t)] $\\
+Korrelation & $\hat{m}_{XX}(\tau) \hat{=} \frac{1}{2T} \int _{-T}^T x(t+\tau)x(t)dt \; {T \to \infty} \; m_{XX}(\tau) = E[X(t+\tau)X(t)]$ \\
+
+\end{tabular}
+
+\subsection{Spektrale Leistungsdichte}
+\begin{itemize}
+\item $S_{XX}(\omega) \hat {=} \int_{-\infty}^\infty m_{XX}(\tau) e^{-j\omega \tau}$
+\item $ m_{XX}(\tau) = \frac{1}{2\pi} \int _{-\infty}^\infty S_{XX}(\omega)e^{j\omega \tau} d\omega$
+\item $S_{XX}(\omega)$ ist reell
+\item $S_{XX}(\omega) = S_{XX}(-\omega)$, weil X(t) reell ist
+\item $S_{XX}(\omega) \geq 0$
+\item $S_{XY}(\omega) \hat {=} \int_{-\infty}^\infty m_{XY}(\tau) e^{-j\omega \tau}$
+\end{itemize}
+
+
+
+
+\subsection{LTI}
+\begin{tabular}{ c |c }
+Zeitbereich & Frequenzbereich \\\hline
+Impulsantwort $h(t)$ & Frequenzantwort $H(\omega)$\\
+Kreuzkorrelationen & Spektrale Kreuz-Leistungsdichten \\
+$m_{XY}(\tau) = m_{XX}(\tau)*h(-\tau)$ & $S_{XY}(\omega) =S_{XX}(\omega)H^*(\omega)$ \\
+$m_{YX}(\tau) = h(\tau)*m_{XX}(\tau)$ & $S_{YX}(\omega)=H(\omega)S_{XX}(\omega)$ \\
+Korrelation & Spektrale Leistungsdichte \\
+$m_{YY}(\tau) = h(\tau)*m_{XX}(\tau)*h(-\tau)$ & $S_{YY}(\omega) = |H(\omega)|^2S_{XX}(\omega)$\\ \hline
+Ausgangsmittel & Ausgangsleistung \\
+$\mu_Y= \mu_X \int_{-\infty}^\infty h(\tau) d\tau = \mu_XH(0)$ & $E\{Y^2(t)\} = m_{YY}(0) = \frac{1}{2\pi}\int_{-\infty}^\infty |H(\omega)|^2S_{XX}(\omega) d\omega$ \\
+\end{tabular}
 
 
 
