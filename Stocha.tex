@@ -22,8 +22,8 @@
 
 \subsection{Gemeinsame und bedingte Wahrscheinlichkeiten}
 \begin{itemize}
-\item$P(EF) = P(E\cap F)$
-\item $P(E|F) = \frac{P(EF)}{P(F)}$
+\item$P(EF) = P(E\cap F) = P(F \cap E) = P(FE)$
+\item $P(E|F) = \frac{P(EF)}{P(F)} = \frac{P(FE)}{P(F)}$
 \item $P(EF) = P(E|F)P(F)$
 \end{itemize}
 
@@ -67,6 +67,7 @@
 \subsection{Poisson-ZV}
 \begin{itemize}
 \item $P_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}$
+\item $\sum_{-\infty}^\infty x\frac{\lambda^x e^{-\lambda}}{x!} = 1$
 \end{itemize}
 
 
@@ -87,8 +88,6 @@ Rand & $P_X(x,y) = \sum_Y P_{XY}(x,y)$\\
 \subsection{Erwartungswerte und Momente}
 \begin{tabular}{c|c}
 & Formel \\ \hline
-Durchschnitt & $\mu = \frac{1}{n}\sum_{i=1}^L g_i N_i$ \\
-quadratische Abw. & $\sigma ^2 = \frac{1}{n} \sum_{i=1}^L (g_i-\mu)^2N_i$ \\
 Mittelwert & $\mu_X = E\{X\} \hat{=} \sum_X xP_X(x)$ \\
 Varianz & $var(X) \hat{=} E\{(X-\mu_X)^2\} = \sum_X (x-\mu_X)^2P_X(x)$\\
 Standard Abw. & $\sigma_X = \sqrt{var(X)}$\\
@@ -96,6 +95,15 @@ Korrelation & $\mu_{XY} = E\{XY\} = \sum_X \sum_Y xyP_{XY}(x,y)$\\
 Kovarianz & $\sigma_{XY} = E\{(X-\mu_X)(Y-\mu_Y)\} =\sum_X \sum_Y (x-\mu_X)(y-\mu_Y)P_{XY}(x,y) $\\
 Linearität & $E\{aX+bY\} = aE\{X\} + bE\{Y\}$ \\
 \end{tabular}
+
+
+\begin{itemize}
+\item $\sigma_X^2=\mu_{X^2} - \mu_X^2$
+\item $E[x^2] = E[x(x-1)]+E[x]$
+\item $\sigma_ {XY} = E[(X-\mu_X)(Y-\mu_Y)] = \mu_{XY} - \mu_X\mu_Y$
+\end {itemize}
+
+
 \subsection{Unkorreliertheit}
 \begin{itemize}
 \item $E\{XY\} = E\{X\}E\{Y\}$, d.h $ \sigma_{XY} = 0$, dann sind X und Y unkorreliert
