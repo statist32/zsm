@@ -142,8 +142,8 @@ $P(X_{n+1} = | X_n = i_n , ..., X_0 = i_0) = P(X_{n+1} = i_{i+1} | X_n = i_n)$
 \item Station{\"a}re Verteilung, wenn $\pi = \pi P$ 
 \item $\pi = \pi P \Leftrightarrow \pi(P - I) = 0$
 \item irreduzibel = Jeder Zusatand erreichbar
-\item irreduzibel $\Leftrightarrow \leq $ 1 stationäre Verteilung
 \item Eine irreduzible, aperiodische Kette mit einer endlichen Anzahl von Zuständen hat eine eindeutige stationäre Verteilung.
+\item eindeutige stationäre Verteilung, wenn irreduzibel und aperiodisch
 \end{itemize}
 
 \subsection{Berechnung der stationären Verteilung}
@@ -153,7 +153,7 @@ $P(X_{n+1} = | X_n = i_n , ..., X_0 = i_0) = P(X_{n+1} = i_{i+1} | X_n = i_n)$
 \subsection{Wkdichte- und kumulative Verteilungsfunktionen}
 \begin{tabular}{c | c}
 Funktion & Formel \\ \hline
-kummulative Verteilungs& $F_X (x) \hat{=}  P(X \leq x ) = \int_{-\infty}^x f_x(\xi)d\xi $ \\
+kummulative Verteilungs& $F_X (x) \hat{=}  P(X \leq x ) = \int_{-\infty}^x f_X(\xi)d\xi $ \\
 Wskdichte  &$f_X(x) = \frac{d}{dx} F_X(x)$\\
 \end{tabular}
 
@@ -201,7 +201,7 @@ Kovarianz & $\sigma_{XY} = E\{(X-\mu_x)(Y-\mu_y)\} =\int_{-\infty}^\infty \int_{
 
 \subsection{Tscherbyscheff Ungleichung}
 Sie X eine ZV mit dem Mittelwert $\mu_X$ und einer endlichen Varianz $\sigma_X^2$. Für ein beliebiges $\delta >0$
-$$P[|X-\mu_x|\geq \delta] \leq frac{\sigma_X^2}{\delta^2}$$
+$$P[|X-\mu_x|\geq \delta] \leq \frac{\sigma_X^2}{\delta^2}$$
 
 \subsection{Wichtige Verteilungen}
 \subsubsection{Gleichverteilung}
@@ -240,12 +240,12 @@ $$f_X(x) = \frac{1}{\sqrt{2\pi} \sigma_X}exp({-\frac{1}{2}(\frac{x-\mu_x}{\sigma
 \item vollständig bestimmt durch Mittelwert und Varianz
 \item Wenn X und Y gem. Gau\ss-verteilt sind und unkorreliert sind, dann sind sie unabhängig
 \item Wenn X und Y gem. Gau\ss-verteilt sind, dann sind auch die Randverteilungen Gau\ss isch
-\item Wenn X und Y gem. Gau\ss-verteilt sind, dann ist es X|Y auch
+\item Wenn X und Y gem. Gau\ss-verteilt sind, dann ist es $X|Y$ auch
 \item Wenn X Gau\ss-verteilt ist, dann ist aX+b auch (mit $ Mittelwert \: a\mu_X + b \: und \: Varianz \: a2^2\sigma_X^2$)
 
 \end{itemize}
 \subsection{Momenterzeugende Funktion}
-$$\phi(s) = E\{e^{sX}\} = \int_{\infty}^{\infty}e°{sx} f_X(x) dx,\quad s \in C $$
+$$\phi(s) = E\{e^{sX}\} = \int_{\infty}^{\infty}e^{sx} f_X(x) dx,\quad s \in C $$
 \subsubsection{n-te Moment}
 $$E\{X^n\} = \frac{d^n}{ds^n} \phi(s)|_{s=0}$$
 \subsubsection{Charakteristische Funktion}
@@ -267,7 +267,7 @@ $Z = \frac{1}{\sqrt{N}}\sum_{n = 1}^N(X_n -\mu)$
 \begin{tabular}{c c }
 Stichprobe& Reihe von Messungen \\
 Statistik & beliebige Funktion der Daten \\
-Stichprobenmittel & $\hat{M}_n = \frac{1}{n} \sum_{i=1}^n$\\
+Stichprobenmittel & $\hat{M}_n = \frac{1}{n} \sum_{i=1}^n X_i$\\
 Stichprobenvarianz & $\hat{\sum}_n^2 = \frac{1}{n-1} \sum_{i = 1}^n(X_i-\hat{M}_n)^2$ \\
 		& $\hat{\sum}_n^2 = \frac{1}{n} \sum_{i = 1}^n(X_i-\hat{\mu}_X)^2$
 \end{tabular}
@@ -321,7 +321,7 @@ Wenn das Mittel des Schätzers dem Mittelwert des Parameters, den er schätz, en
 
 \subsection{Bedingte Gau\ss - Wdf.}
 \begin{itemize}
-\item$F{Y|X}(y|x) = \frac{f_{XY}}{f_X(x)}$
+\item$F_{Y|X}(y|x) = \frac{f_{XY}}{f_X(x)}$
 \item Gau\ss isch Mittel  $E\{Y|X=x\} = \mu_Y + \rho_{XY} \frac{\sigma_Y}{\sigma_X}(x-\mu_x)$
 \item Varianz $\sigma_Y^2(1-\rho_{XY}^2)$
 \item Für $\hat{Y} = E\{Y|X\} ist \hat{Y} = aX+b$, der lin Schätzer, $E\{(\hat{Y}-Y)^2\}$ MSE
@@ -409,8 +409,8 @@ Funktion & Formel \\ \hline
 Mittelwert & $\mu_X(t) \hat{=} E[X(t)] = \int_{-\infty}^\infty x f_{X(t)}(x) dx$\\
 AutoKorrelation &$ m_{xx}(t_1,t_2) \hat{=} E[X(t_1)X(t_2)] = \int\int_{-\infty}^\infty x_1x_2f_{X(t_1)X(t_2)}(x_1,x_2)dx_1 dx_2$\\
 AutoKovar& $C_c(t) \hat{=} X(t)-\mu_X(t):$ \\
-& $r_{xx}/t_1,t_2) \hat{=} E[X_c(t_1)X_c(t_2)] = E[(X(t_1)-\mu_X(t_1))(X(t_2)-\mu_X(t_2))]$ \\
-& $r_{XX}(t_1.t_2) = m_{xx}(t_1,t_2) - \mu_X(t_1)\mu_X(t_2)$ \\
+& $r_{xx}(t_1,t_2) \hat{=} E[X_c(t_1)X_c(t_2)] = E[(X(t_1)-\mu_X(t_1))(X(t_2)-\mu_X(t_2))]$ \\
+& $r_{XX}(t_1,t_2) = m_{xx}(t_1,t_2) - \mu_X(t_1)\mu_X(t_2)$ \\
 \end{tabular}
 
 \subsection{WSS Prozesse}
@@ -418,7 +418,7 @@ AutoKovar& $C_c(t) \hat{=} X(t)-\mu_X(t):$ \\
 \item Ein ZP ist WSS, wenn sein Mittel zeitinvariant ist und seine AKF verschiebungsinvariant ist
 \item Sei $t_1 = t + \tau$ udn $ t_2 = t$ Dann ist AKF verschiebungsinvariant, wenn sie nur von der Zeitverschiebung $\tau$ abghängt \\
 $m_{XX} \hat{=} E[X(t+\tau)X(t)] = \int\int_{-\infty}^\infty x_1x_2f_{X(t+\tau)X(t)}(x_1,x_2)dx_1 dx_2 $
-\item $r_{XX}(\tau) = m_{XX}(\tau)=-\mu_X^2$
+\item $r_{XX}(\tau) = m_{XX}(\tau)-\mu_X^2$
 \end{itemize}
 
 
