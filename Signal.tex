@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{bm}
+\begin{document}
+
+\section{Energie}
+
+\subsection{Energie/Leistung}
+\begin{tabular}{c c c }
+Energiesignal & $E_X = \int_{-\infty}^\infty |x(t)|^2 dt$ &$0<E_x <\infty \Rightarrow P_X=0$ \\
+&$E_X = \sum_{-\infty}^\infty |x(t)|^2 dt$ & \\
+Leistungssignal & $P_X = \lim\limits_{ T \to \infty}\frac{1}{2T} \int_{-T}^T |x(t)|^2dt $ &  $0<P_X<\infty \Rightarrow E_X \rightarrow \infty$ \\
+ &$P_X = \lim\limits_{ T \to \infty}\frac{1}{2K+1} \sum_{-K}^K |x[k]|^2 $ & \\
+\end{tabular}
+
+\begin{itemize}
+\item reell existierne keine Leistungssignale
+\item periodischen Signale sind Leistungssignale
+\end{itemize}
+
+\subsection{Signalzerlegung}
+\begin{itemize}
+\item $f_g(t)= \frac{1}{2}(f(t)+f(-t))$
+\item $f_u(t)= \frac{1}{2}(f(t)-f(-t))$
+\end{itemize}
+
+$$
+\Gamma(t)=
+\begin{cases}
+1, \; t > 0 \\
+\frac{1}{2}, \; t= 0 \\
+0, \;sonst
+\end{cases}
+$$
+
+$$
+rect(\frac{t}{T})=
+\begin{cases}
+1, \; t \in  [-\frac{T}{2}, \frac{T}{2}] \\
+
+0, \;sonst
+\end{cases}
+$$
+
+$$
+\Lambda(\frac{t}{T})=
+\begin{cases}
+-T+|t|, \;[-T, 0] \\
+1-t, \;  [0,T] \\
+0, \;sonst
+\end{cases}
+$$
+
+$$sinc(t) = \frac{sin(t)}{\pi t}$$
+$$A\cdot rect(\frac{t-t_0}{T})$$
+\begin{itemize}
+\item $A$: Skalierung
+\item $t_0$: Verschiebung
+\item $T$: Dehnung/Stauchung
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Additionstheoreme}
+\begin{itemize}
+\item $sin(a)sin(b)=\frac{1}{2} (cos(a-b)-cos(a+b))$
+\item $cos(a)cos(b)=\frac{1}{2} (cos(a-b)+cos(a+b))$
+\item $sin(a)cos(b)=\frac{1}{2} (sin(a-b)-sin(a+b))$
+\end{itemize}
+
+
+\subsection{}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+
+
+
+
+\end{document}
