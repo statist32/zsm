@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{bm}
+\usepackage[utf8]{inputenc}
 \begin{document}
 
 \section{Energie}
@@ -14,8 +15,9 @@ Leistungssignal & $P_X = \lim\limits_{ T \to \infty}\frac{1}{2T} \int_{-T}^T |x(
 \end{tabular}
 
 \begin{itemize}
-\item reell existierne keine Leistungssignale
-\item periodischen Signale sind Leistungssignale
+\item reell existieren keine Leistungssignale
+\item periodisches Signal $\Rightarrow$Leistungssignale
+\item endlicher Flächeninhalt $\Rightarrow$ Energiesignal
 \end{itemize}
 
 \subsection{Signalzerlegung}
@@ -51,8 +53,21 @@ $$
 \end{cases}
 $$
 
+$$
+\delta(t)=
+\begin{cases}
+1, \;t = 0\\
+0, \;sonst
+\end{cases}
+$$
+\begin{itemize}
+\item Ausblendeigenschaft $f(t)\cdot\delta(t-t_0) = f(t_0)\cdot\delta(t-t_0)$ \\  $ \int_{-\infty}^\infty f(t)\cdot \delta(t-t_0) dt = f(t_0)$
+\item $\delta(bt) = \lim\limits_{\varepsilon \to 0} \frac{1}{\varepsilon}$ rect$(\frac{bt}{\varepsilon})$
+\end{itemize}
+
 $$sinc(t) = \frac{sin(t)}{\pi t}$$
 $$A\cdot rect(\frac{t-t_0}{T})$$
+
 \begin{itemize}
 \item $A$: Skalierung
 \item $t_0$: Verschiebung
@@ -60,9 +75,107 @@ $$A\cdot rect(\frac{t-t_0}{T})$$
 \end{itemize}
 
 
+\section{LTI-Systeme}
+\subsection{Linearität}
+\begin{itemize}
+\item Additivität: $S\{x_1(t) + x_2(t)\} = S\{x_1(t)\} + S\{x_2(t)\}$
+\item Homogenität: $\{ a\cdot x(t)\} = a S\{x(t)\} = a\cdot y(t)$
+\end{itemize}
+
+
+\subsection{Zeitinvarianz}
+\begin{itemize}
+\item $y(t) = S\{x(t)\} \Rightarrow y(t-\tau) = S\{x(t-\tau)\} = S\{\tilde{x}(t)\}$
+\item $-\tau$ in das Argument von x $x(3t^2-\tau)$ 
+\end{itemize}
+
+\subsection{Kausalität}
+\begin{itemize}
+\item Kausal $\Leftrightarrow h(t) = 0 \;  \forall t < 0$
+\item $h[k] = 0 \; \forall k<0$
+\end{itemize}
+
+\subsection{BIBO}
+\begin{itemize}
+\item $\int_{-\infty}^\infty |h(t)|dt < \infty$
+\item $\sum_{-\infty}^\infty |h[k]| < \infty$
+\item also absolut integrierbar/summierbar
+\end{itemize}
+
+\subsection{Superpositionsprinzip}
+\begin{itemize}
+\item $x(t) := \sum_n a_n\cdot e^{s_nt}$
+\item $y(t) = \sum_n  a_n \cdot e^{s_n t} \cdot H(S_n)$
+\end{itemize}
+
+
+\subsection{zeitkontinuierliche Faltung}
+\begin{itemize}
+\item $y(t) = x(t)*h(t) = \int_{-\infty}^\infty x(\tau)h(t-\tau) d\tau$
+\item $x(a(t+T))*\delta(t-t_0) = x(a(t+T-t_0)$ (t im Arg(x) durchArg(Dirac) ersetzen)
+\item kommutativ: $x(t)*h(t) = h(t)*x(t)$
+\item distributiv: $x(t)*(h_1(t)+h_2(t)) =x(t)*h_1(t)+x(t)*h_2(t)$
+\item assoziativ: $x(t)*(h_1(t)*h_2(t)) = (x(t)*(h_1(t))*h_2(t)$
+\end{itemize}
 
 
 
+\section{Foruiertreihen}
+\begin{itemize}
+\item $x(t) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n cos(\omega_0nt)+b_nsin(\omega_0nt)$
+\end{itemize}
+\begin{tabular}{ c c}
+ Gleichanteil & $\frac{a_0}{2}$\\
+ Koeff. Grundschw. & $a_1,b_1$ \\
+ Koeff. Oberschw. & $a_n, b_n$ \\
+ \end{tabular}
+
+\subsection{Komplexe Darstellung}
+\begin{itemize}
+\item $x(t) = \sum_{n = - \infty}^\infty X_ne^{jn\omega_0t} \; \omega_0 = \frac{2\pi}{T}$
+\item $X_n = \frac{1}{T} \int_0^T X(t) e^{-jn\omega_0t}dt$
+\item $|x(t)|^2 = x(t)\cdot x(t)^*$
+\end{itemize}
+\begin{tabular}{c  c c}
+$a_0$ &=& $2X_0$ \\
+ $a_n$&= & $X_n +X_{-n}$ \\
+ $b_n$&= & $j(X_n-X_{-n})$ \\
+ $X_0$&= & $\frac{a_0}{2}$ \\
+ $X_n$ &=& $\frac{1}{2}(an_-jb_n)$ \\
+ $X_{-n}$ &=& $\frac{1}{2}(a_n+jb_n)$ \\
+ \end{tabular}
+
+
+\subsection{Eigenschaften}
+\begin{tabular}{c c c}
+$ax(t) + by(t)$ &$\leftrightarrow$& $aX_n+bY_n$ \\
+$x(t-t_0)$ &$\leftrightarrow$& $X_n\cdot e^{-j\omega_0t_0}$ \\
+$x(-t)$ &$\leftrightarrow$& $X_{-n}$ \\
+$x(at)$ &$\leftrightarrow$& $X_n$ mit Per. $\frac{T}{a}$, a > 0 \\
+$x(t)\cdot y(t)$ &$\leftrightarrow$& $x(t)*y(t)$ \\
+\end{tabular}
+
+\subsection{Dirichlet-Kritirien}
+\begin{itemize}
+\item $\int_T |x(t)|dt \leq \infty$
+\item endlich viele Minima und Maxima in einer Periode
+\item endliche Anzahl der Unstetigkeitsstellen in einer Periode
+\item $\Rightarrow$ garantieren punktweise Konvergenz, außer an Unstetigkeitsstellen
+\item An Unstetigkeitsstellen gegen Mittelwert des linken und rechten Grenzwerts
+\end{itemize}
+
+
+
+\subsection{FR und FT}
+\begin{tabular}{ c| c| c }
+& kontinuierlich & periodisch \\
+FR & & \\ \hline
+$x(t)$ & ja & ja \\
+ $X_n$ &nein& ja\\
+ FT & & \\ \hline
+ $x(t)$ & ja & nein \\
+ $X^F(\omega)$ & ja & nein \\
+\end{tabular}
 
 
 

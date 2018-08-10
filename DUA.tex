@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage[utf8]{inputenc}
 \begin{document}
 \small
 \section{Grundlagen}
@@ -168,7 +169,7 @@ Danach Heapify(A[i ... i-1])\\
 \subsection{Geschlossene Adressierung}
 \begin{itemize}
 \item Kollisionsuafl{\"o}sung durch Listen
-\item Suchen/L{\"o}schen AV: $\Theta(1+\alpha)$, Falls  m= $\Theta(n)$ $.\Theta(1)$
+\item Suchen/L{\"o}schen AV: $\Theta(1+\alpha)$, Falls  m= $\Theta(n)$ $\Theta(1)$
 \end{itemize}
 
 
@@ -230,7 +231,8 @@ Bubble& Vergleich& Ja & Ja & $\Theta(n)$ & $\Theta(n^2)$ & $\Theta(n^2)$\\
 Insertion& Inkrementell & Ja & Ja & $\Theta(n)$ & $\Theta(n^2)$ & $\Theta(n^2)$ \\
 Merge& $D\&C $ & Nein & Ja & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ \\
 Quick& $D\&C $ & Ja & Nein & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ & $\Theta(n^2)$ \\
-Heap& $D\&C $ & Ja & Nein & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ \\
+Heap& $$ & Ja & Nein & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ & $\Theta(nlog(n))$ \\
+BuildHeap &&&&$\Theta(n)$&$\Theta(n)$&$\Theta(n)$ \\
 Bucket& Inkrementell & Nein & Ja & $\Theta(n+k)$ & $\Theta(n+k)$ & $\Theta(n^2)$ \\
 
 \end{tabular}
