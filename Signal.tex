@@ -24,6 +24,8 @@ Leistungssignal & $P_X = \lim\limits_{ T \to \infty}\frac{1}{2T} \int_{-T}^T |x(
 \begin{itemize}
 \item $f_g(t)= \frac{1}{2}(f(t)+f(-t))$
 \item $f_u(t)= \frac{1}{2}(f(t)-f(-t))$
+\item $Re\{x\} = \frac{1}{2}(x(t)+x^*(t))$
+\item $Im\{x\} = \frac{1}{2}(x(t)-x^*(t))$
 \end{itemize}
 
 $$
@@ -85,8 +87,8 @@ $$A\cdot rect(\frac{t-t_0}{T})$$
 
 \subsection{Zeitinvarianz}
 \begin{itemize}
-\item $y(t) = S\{x(t)\} \Rightarrow y(t-\tau) = S\{x(t-\tau)\} = S\{\tilde{x}(t)\}$
-\item $-\tau$ in das Argument von x $x(3t^2-\tau)$ 
+\item $y(t) = S\{x(t)\} \Rightarrow y(t-T) = S\{x(t-T)\} = S\{\tilde{x}(t)\}$
+\item $-T$ in das Argument von x $x(3t^2-T)$ 
 \end{itemize}
 
 \subsection{Kausalität}
@@ -152,8 +154,12 @@ $ax(t) + by(t)$ &$\leftrightarrow$& $aX_n+bY_n$ \\
 $x(t-t_0)$ &$\leftrightarrow$& $X_n\cdot e^{-j\omega_0t_0}$ \\
 $x(-t)$ &$\leftrightarrow$& $X_{-n}$ \\
 $x(at)$ &$\leftrightarrow$& $X_n$ mit Per. $\frac{T}{a}$, $a > 0$ \\
-$x(t)\cdot y(t)$ &$\leftrightarrow$& $x(t)*y(t)$ \\
+$x(t)\cdot y(t)$ &$\leftrightarrow$& $x(t)*y(t)$  = $\sum_{k=\infty}^\infty X_kY_{n-k}$\\
+$x^*(t)$ & $\leftrightarrow$ & $X^*_{-n}$\\
+$$ & $ \leftrightarrow$ & $$ \\
+$$ & $ \leftrightarrow$ & $$ \\
 \end{tabular}
+Parsevalbeziehung, der durchschnittlichen Leistung: $\frac{1}{T} \int_T |x(t)|^2 dt = \sum_{n=-\infty}^\infty$
 
 \subsection{Dirichlet-Kritirien}
 \begin{itemize}
@@ -184,27 +190,29 @@ $x(t)$ & ja & ja \\
 \end{itemize}
 
 \subsection{Eigenschaften}
-\begin{tabular}{ c c c}
+\begin{tabular}{c c c}
 $ax(t)+by(t)$ & $\leftrightarrow$ & $aX^F(\omega)+bY^F(\omega)$\\
 $x(t-t_0)$ & $\leftrightarrow$ & $X^F(\omega)e^{-j\omega t_0}$\\
 $x(t)e^{j\omega_0t}$ & $\leftrightarrow$ & $X^F(\omega-\omega_0)$\\
-$x(at)$ & $\leftrightarrow$ & $\frac{1}{|a|}F^F(\frac{\omega}{a})$\\
+$x(at)$ & $\leftrightarrow$ & $\frac{1}{|a|}X^F(\frac{\omega}{a})$\\
 $\dot{x}(t)$ & $\leftrightarrow$ & $ jw X^F(\omega)$\\
 $x(t)\cdot y(t)$ & $\leftrightarrow$ & $\frac{1}{2\pi}X^F(\omega)*Y^F(\omega)$\\
 $x^*(t)$ & $\leftrightarrow$ & $X^{F*}(-\omega)$\\
-$$ & $\leftrightarrow$ & $$\\
-$$ & $\leftrightarrow$ & $$\\
 \end{tabular}
 
 \subsection{FT Paare}
 \begin{tabular}{ ccc}
 $\delta(t)$ & $\leftrightarrow$ & $1$\\
+$1$ & $\leftrightarrow$ & $2\pi\delta(\omega)$\\
+$\Gamma(t)$ & $\leftrightarrow$ & $\pi\delta(\omega)+\frac{1}{j\omega}$\\
+$sgn(t)$ & $\leftrightarrow$ & $\frac{2}{j\omega}$\\
 $rect(\frac{t}{T})$ & $\leftrightarrow$ & $|T|sinc(\frac{T\omega}{2\pi})$\\
-$\Lambda(\frac{t}{T})$ & $\leftrightarrow$ & $|T|sinc(\frac{T\omega}{2\pi})$\\
+$\Lambda(\frac{t}{T})$ & $\leftrightarrow$ & $|T|sinc^2(\frac{T\omega}{2\pi})$\\
+$sinc(\frac{t}{T})$ & $\leftrightarrow$ & $|T|rect(\frac{T\omega}{2\pi})$\\
+$e^{-\pi t^2}$ & $\leftrightarrow$ & $e^{-\pi(\frac{\omega}{2\pi})^2}$\\
+$e^{j\omega_0t}$ & $\leftrightarrow$ & $2\pi\delta(\omega-\omega_0)$\\
 $sin(\omega_0 t)$ & $\leftrightarrow$ & $j\pi[\delta(\omega+\omega_0)-\delta(\omega-\omega_0)]$\\
 $cos(\omega_0t)$ & $\leftrightarrow$ & $\pi[\delta(\omega+\omega_0)-\delta(\omega+\omega_0)]$\\
-$$ & $\leftrightarrow$ & $$\\
-$$ & $\leftrightarrow$ & $$\\
 
 \end{tabular}
 
@@ -232,8 +240,8 @@ $$ & $\leftrightarrow$ & $$\\
 
 \subsection{Eigenschaften}
 \begin{tabular} { c c c}
-$$ & $\leftrightarrow$ & $$ \\
-$$ & $\leftrightarrow$ & $$ \\
+$ax(t)+by(t)$ & $\leftrightarrow$ & $aX^(\omega)+bY^F(\omega)$ \\
+$x(t-t_0)$ & $\leftrightarrow$ & $X^F$ \\
 $$ & $\leftrightarrow$ & $$ \\
 $$ & $\leftrightarrow$ & $$ \\
 $x[k]\cdot y[k] $ & $\leftrightarrow$ & $\frac{1}{2\pi} X^f(\theta)\otimes Y^f(\theta) $ \\
