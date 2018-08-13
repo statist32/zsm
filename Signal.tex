@@ -208,21 +208,92 @@ $$ & $\leftrightarrow$ & $$\\
 
 \end{tabular}
 
-\subsection{}
+\subsection{Dualitätsprinzip}
 \begin{itemize}
-\item
-\item
+\item $F\{f(t)\} = g(\omega)$ zu $F\{y(t)\} = 2\pi f(-\omega)$
+\end{itemize}
+
+\subsection{Bandbreite}
+\begin{itemize}
+\item exakte BB = $\omega_{max}-\omega_{min}$ kann unendlich sein
+\item 99\% BB, wo 99\% der Signalenergie enthalten sind
+\item immer endlich au\ss er bei Konstanten
+\item Je kürzer die Signaldauer, desto grö\ss er die BB $\delta(t) \leftrightarrow 1$
+\item JE glatter das Signal, desto kleiner die BB $rect(t) \leftrightarrow sinc(t)$
+\item Ein Signal kann nicht gleichzeitig exakt Zeit und Bandbegrenzt sein
+\end{itemize}
+
+\subsection{Zeitdiskrete Transformation}
+\begin{itemize}
+\item $X^f(\theta) = \sum_{k=-\infty}^\infty x[k]e^{-jk\theta}$
+\item $x[k] = \frac{1}{2\pi} \int_{2\pi} X^f(\theta) e^{j\theta k} d\theta$
+\end{itemize}
+
+
+\subsection{Eigenschaften}
+\begin{tabular} { c c c}
+$$ & $\leftrightarrow$ & $$ \\
+$$ & $\leftrightarrow$ & $$ \\
+$$ & $\leftrightarrow$ & $$ \\
+$$ & $\leftrightarrow$ & $$ \\
+$x[k]\cdot y[k] $ & $\leftrightarrow$ & $\frac{1}{2\pi} X^f(\theta)\otimes Y^f(\theta) $ \\
+$$ & $\leftrightarrow$ & $$ \\
+\end{tabular}
+$x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$
+
+\subsection{Sampling}
+\begin{itemize}
+\item Abtastung: $x[k] = x(kT)$
+\item $\omega_{max} = |\omega_i|$
+\item $\omega_{sam} \geq 2\cdot \omega_{max} \Rightarrow$ perfekte Rekonstruktion möglich
+\item $\theta = \omega T_{sam}$
+\item $X^f(\theta) \frac{1}{T_{sam}} X^F(\frac{\theta}{T_{sam}}) + \frac{1}{T_sam} \sum_{n=-\infty}^\infty X^F(\frac{\theta-2\pi}{T_{sam}})$
+\end{itemize}
+
+\subsection{DFT}
+\begin{itemize}
+\item $X^d[n] = \sum_{k=0}^{K-1}x[k]W_K^{nk}$  $W_K=e^{j\frac{2\pi}{K}}$
+\item $x[k] = \frac{1}{K} \sum_{n= 0}^{K-1} X^d[n]W_K^{nk}$
+\item $x[k]$ und $X^d[n]$ sind periodoisch mit K
+\end{itemize}
+
+\begin{itemize}
+\item $T_{sam} = \Delta t = \frac{1}{f_{sam}}$
+\item $f_{sam} = k \Delta f$
+\item $T_{ges} = T_{mes} = k\cdot T_{sam} = \frac{1}{T_ges}$
+\item $\Delta \omega = \frac{2\pi}{k T_{sam}} = \frac{2\pi}{T_{ges}}$
+\item $0 \leq n \leq frac{N}{2}: \; f_n = \frac{n}{N} f_{sam}$ (pos)
+\item $\frac{N}{2} \leq n \leq N-1:\; f_n= \frac{n-N}{N} f_{sam} $
 \end{itemize}
 
 
 
+ \begin{tabular}{c |c| c}
+  & freqkontinuierlich & freqdiskret = Zeit periodich\\ \hline
+  zeitkontinuierlich & FT & FR \\ \hline
+ zeitdiskret &DTFT & DFT \\
+ = frequenzperiodisch  & \\
+ \end{tabular}
+
+\subsection{Zyklische Faltung}
+\begin{itemize}
+\item $z[k] = x[k]\otimes y[k] \leftrightarrow Z^d[n] = X^d[n]\cdot Y^d[n]$
+\item lineare Faltung als zykliche Faltung
+\end{itemize}
+
+\subsubsection{zero-gepaddete Signale}
+\begin{itemize}
+\item 0en anhängen und zyklisch falten (Uhrenmethode)
+
+\end{itemize}
 
 \subsection{Additionstheoreme}
 \begin{itemize}
 \item $sin(a)sin(b)=\frac{1}{2} (cos(a-b)-cos(a+b))$
 \item $cos(a)cos(b)=\frac{1}{2} (cos(a-b)+cos(a+b))$
 \item $sin(a)cos(b)=\frac{1}{2} (sin(a-b)-sin(a+b))$
-\item $cos(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}$
+\item $cos(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}+e^{-j\omega_0 t })$
+\item $sin(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}-e^{-j\omega_0 t })$
 \end{itemize}
 
 
