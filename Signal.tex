@@ -63,11 +63,13 @@ $$
 \end{cases}
 $$
 \begin{itemize}
-\item Ausblendeigenschaft $f(t)\cdot\delta(t-t_0) = f(t_0)\cdot\delta(t-t_0)$ \\  $ \int_{-\infty}^\infty f(t)\cdot \delta(t-t_0) dt = f(t_0)$
+\item Ausblendeigenschaft \newline
+$f(t)\cdot\delta(t-t_0) = f(t_0)\cdot\delta(t-t_0)$ \\ 
+ $ \int_{-\infty}^\infty f(t)\cdot \delta(t-t_0) dt = f(t_0)$
 \item $\delta(bt) = \lim\limits_{\varepsilon \to 0} \frac{1}{\varepsilon}$ rect$(\frac{bt}{\varepsilon})$
 \end{itemize}
 
-$$sinc(t) = \frac{sin(t)}{\pi t}$$
+$$sinc(t) = \frac{sin(\pi t)}{\pi t}$$
 $$A\cdot rect(\frac{t-t_0}{T})$$
 
 \begin{itemize}
@@ -118,6 +120,7 @@ $$A\cdot rect(\frac{t-t_0}{T})$$
 \item kommutativ: $x(t)*h(t) = h(t)*x(t)$
 \item distributiv: $x(t)*(h_1(t)+h_2(t)) =x(t)*h_1(t)+x(t)*h_2(t)$
 \item assoziativ: $x(t)*(h_1(t)*h_2(t)) = (x(t)*(h_1(t))*h_2(t)$
+\item $rect(\frac{t}{T})*rect(\frac{t}{T}) =T \Lambda(\frac{t}{T})$
 \end{itemize}
 
 
@@ -156,9 +159,7 @@ $x(-t)$ &$\leftrightarrow$& $X_{-n}$ \\
 $x(at)$ &$\leftrightarrow$& $X_n$ mit Per. $\frac{T}{a}$, $a > 0$ \\
 $x(t)\cdot y(t)$ &$\leftrightarrow$& $x(t)*y(t)$  = $\sum_{k=\infty}^\infty X_kY_{n-k}$\\
 $x^*(t)$ & $\leftrightarrow$ & $X^*_{-n}$\\
-$$ & $ \leftrightarrow$ & $$ \\
-$$ & $ \leftrightarrow$ & $$ \\
-\end{tabular}
+\end{tabular} \newline
 Parsevalbeziehung, der durchschnittlichen Leistung: $\frac{1}{T} \int_T |x(t)|^2 dt = \sum_{n=-\infty}^\infty$
 
 \subsection{Dirichlet-Kritirien}
@@ -231,7 +232,7 @@ $cos(\omega_0t)$ & $\leftrightarrow$ & $\pi[\delta(\omega+\omega_0)-\delta(\omeg
 \item Ein Signal kann nicht gleichzeitig exakt Zeit und Bandbegrenzt sein
 \end{itemize}
 
-\subsection{Zeitdiskrete Transformation}
+\subsection{Zeitdiskrete Transformation DTFT}
 \begin{itemize}
 \item $X^f(\theta) = \sum_{k=-\infty}^\infty x[k]e^{-jk\theta}$
 \item $x[k] = \frac{1}{2\pi} \int_{2\pi} X^f(\theta) e^{j\theta k} d\theta$
@@ -240,14 +241,32 @@ $cos(\omega_0t)$ & $\leftrightarrow$ & $\pi[\delta(\omega+\omega_0)-\delta(\omeg
 
 \subsection{Eigenschaften}
 \begin{tabular} { c c c}
-$ax(t)+by(t)$ & $\leftrightarrow$ & $aX^(\omega)+bY^F(\omega)$ \\
-$x(t-t_0)$ & $\leftrightarrow$ & $X^F$ \\
+$ax(t)+by(t)$ & $\leftrightarrow$ & $aX^f(\theta)+bY^f(\theta)$ \\
+$x(t-t_0)$ & $\leftrightarrow$ & $X^f(\theta)e^{-j\theta k_0}$ \\
+$x(at)$ & $\leftrightarrow$ & $\frac{1}{|a|}X^f(\frac{\theta}{a})$ \\
+$x^*(t)$ & $\leftrightarrow$ & $X^{f*}(-\theta)$ \\
+$x[k]\cdot y[k] $ & $\leftrightarrow$ & $\frac{1}{2\pi} \int_{2\pi}X^f(v)Y^f(\theta-v) dv $ \\
 $$ & $\leftrightarrow$ & $$ \\
-$$ & $\leftrightarrow$ & $$ \\
-$x[k]\cdot y[k] $ & $\leftrightarrow$ & $\frac{1}{2\pi} X^f(\theta)\otimes Y^f(\theta) $ \\
-$$ & $\leftrightarrow$ & $$ \\
+\end{tabular} \newline
+$x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$ \newline
+Ableitung als $ x[k]-x[k-1]$
+
+\subsection{Paare}
+\begin{tabular}{ c c c }
+$\delta(t)$ & $\leftrightarrow$ & $1$\\
+$1$ & $\leftrightarrow$ & $2\pi\sum_{m=-\infty}^\infty \delta(\theta -2\pi m)$\\
+$\Gamma(t)$ & $\leftrightarrow$ & $\pi\sum_m\delta(\theta -2\pi m)+\frac{1}{1-e^{-j\theta}}$\\
+$a^k\Gamma(t)$ & $\leftrightarrow$ & $\frac{1}{1-ae^{-j\theta}}$\\
+$e^{j\theta_0k}$ & $\leftrightarrow$ & $2\pi\sum_m \delta(\theta -\theta_0 -2\pi m)$\\
+$sin(\omega_0 t)$ & $\leftrightarrow$ & $j\pi\sum_m[\delta(\theta -\theta_0 -2\pi m)-\delta(\theta +\theta_0 -2\pi m)]$\\
+$cos(\omega_0t)$ & $\leftrightarrow$ & $\pi\sum_m[\delta(\theta -\theta_0 -2\pi m)+\delta(\theta +\theta_0 -2\pi m)]$\\
+
 \end{tabular}
-$x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$
+
+
+
+
+
 
 \subsection{Sampling}
 \begin{itemize}
@@ -260,13 +279,16 @@ $x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$
 
 \subsection{DFT}
 \begin{itemize}
-\item $X^d[n] = \sum_{k=0}^{K-1}x[k]W_K^{nk}$  $W_K=e^{j\frac{2\pi}{K}}$
+\item $X^d[n] = \sum_{k=0}^{K-1}x[k]W_K^{-nk} \; \; \; \; W_K=e^{j\frac{2\pi}{K}}$
 \item $x[k] = \frac{1}{K} \sum_{n= 0}^{K-1} X^d[n]W_K^{nk}$
+\item $\sum_{k=0}^{K-1} w_K^{nk} = K\delta(n mod K)$
 \item $x[k]$ und $X^d[n]$ sind periodoisch mit K
 \end{itemize}
 
 \begin{itemize}
+\item $\omega = 2\pi f $
 \item $T_{sam} = \Delta t = \frac{1}{f_{sam}}$
+\item $T_{sam}=\frac{2\pi}{\omega_sam}$
 \item $f_{sam} = k \Delta f$
 \item $T_{ges} = T_{mes} = k\cdot T_{sam} = \frac{1}{T_ges}$
 \item $\Delta \omega = \frac{2\pi}{k T_{sam}} = \frac{2\pi}{T_{ges}}$
@@ -274,6 +296,8 @@ $x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$
 \item $\frac{N}{2} \leq n \leq N-1:\; f_n= \frac{n-N}{N} f_{sam} $
 \end{itemize}
 
+\subsection{DTFT - DFT}
+$X^d[n]= X^f(\frac{2\pi m}{k})$
 
 
  \begin{tabular}{c |c| c}
@@ -304,12 +328,6 @@ $x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$
 \item $sin(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}-e^{-j\omega_0 t })$
 \end{itemize}
 
-
-\subsection{}
-\begin{itemize}
-\item
-\item
-\end{itemize}
 
 
 
