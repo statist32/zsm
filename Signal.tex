@@ -56,7 +56,7 @@ $$
 $$
 
 $$
-\delta(t)=
+\delta[t]=
 \begin{cases}
 1, \;t = 0\\
 0, \;sonst
@@ -95,7 +95,8 @@ $$A\cdot rect(\frac{t-t_0}{T})$$
 
 \subsection{Kausalität}
 \begin{itemize}
-\item Kausal $\Leftrightarrow h(t) = 0 \;  \forall t < 0$
+\item LTI - Kausal $\Leftrightarrow h(t) = 0 \;  \forall t < 0$
+\item nur aktuelle oder vergangene Werte
 \item $h[k] = 0 \; \forall k<0$
 \end{itemize}
 
@@ -106,12 +107,7 @@ $$A\cdot rect(\frac{t-t_0}{T})$$
 \item also absolut integrierbar/summierbar
 \end{itemize}
 
-\subsection{Superpositionsprinzip}
-\begin{itemize}
-\item $x(t) := \sum_n a_n\cdot e^{s_nt}$
-\item $y(t) = \sum_n  a_n \cdot e^{s_n t} \cdot H(S_n)$
-\end{itemize}
-
+x und y sind orthogona, wenn xy=0 \newline
 
 \subsection{zeitkontinuierliche Faltung}
 \begin{itemize}
@@ -137,7 +133,8 @@ $$A\cdot rect(\frac{t-t_0}{T})$$
 
 \subsection{Komplexe Darstellung}
 \begin{itemize}
-\item $x(t) = \sum_{n = - \infty}^\infty X_ne^{jn\omega_0t} \; \omega_0 = \frac{2\pi}{T}$
+\item $x(t) = \sum_{n = - \infty}^\infty X_ne^{jn\omega_0t}  = \frac{a_0}{2} + \sum_{n=1}^\infty a_n cos(\omega_0nt)+b_nsin(\omega_0nt) $
+\item $X_n$ = Koeffizienten, $a_n,b_n$ für Reihendarstellung
 \item $X_n = \frac{1}{T} \int_0^T X(t) e^{-jn\omega_0t}dt$
 \item $|x(t)|^2 = x(t)\cdot x(t)^*$
 \end{itemize}
@@ -171,7 +168,10 @@ Parsevalbeziehung, der durchschnittlichen Leistung: $\frac{1}{T} \int_T |x(t)|^2
 \item An Unstetigkeitsstellen gegen Mittelwert des linken und rechten Grenzwerts
 \end{itemize}
 
-
+\subsection{Gibbs}
+\begin{itemize}
+\item 9\% Über/Unterschwingung an Unstetigkeitsstellen
+\end{itemize}
 
 \subsection{FR und FT}
 \begin{tabular}{ c| c| c }
@@ -183,11 +183,11 @@ $x(t)$ & ja & ja \\
  $x(t)$ & ja & nein \\
  $X^F(\omega)$ & ja & nein \\
 \end{tabular}
-
+$$X^F(\omega) = \sum_{n=-\infty}^\infty 2\pi X_n \delta(\omega-n\omega_0)$$
 \subsection{Fourier Transformation}
 \begin{itemize}
 \item $F\{x(t)\} = X^F(\omega) = \int_{-\infty}^\infty x(t) e^{-j\omega t} dt \leftrightarrow x(t)$
-\item $F^{-1}\{X^F(\omega)\} = x(t) = \frac{1}{2\pi}\int_{-\infty}^\infty X^F(\omega) e^{j\omega t}$
+\item $F^{-1}\{X^F(\omega)\} = x(t) = \frac{1}{2\pi}\int_{-\infty}^\infty X^F(\omega) e^{j\omega t}dt$
 \end{itemize}
 
 \subsection{Eigenschaften}
@@ -321,11 +321,10 @@ $X^d[n]= X^f(\frac{2\pi m}{k})$
 
 \subsection{Additionstheoreme}
 \begin{itemize}
-\item $sin(a)sin(b)=\frac{1}{2} (cos(a-b)-cos(a+b))$
-\item $cos(a)cos(b)=\frac{1}{2} (cos(a-b)+cos(a+b))$
-\item $sin(a)cos(b)=\frac{1}{2} (sin(a-b)-sin(a+b))$
+\item $sin(a\pm b)= sin(a)cos(b)\pm cos(a)sin(b)$
+\item $cos(a \pm b)=cos(a)cos(b)\mp sin(a)sin(b)$
 \item $cos(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}+e^{-j\omega_0 t })$
-\item $sin(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}-e^{-j\omega_0 t })$
+\item $sin(\omega_0 t) = \frac{1}{2j}(e^{j\omega_0 t}-e^{-j\omega_0 t })$
 \end{itemize}
 
 
