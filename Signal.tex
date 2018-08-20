@@ -241,25 +241,24 @@ $cos(\omega_0t)$ & $\leftrightarrow$ & $\pi[\delta(\omega+\omega_0)+\delta(\omeg
 
 \subsection{Eigenschaften}
 \begin{tabular} { c c c}
-$ax(t)+by(t)$ & $\leftrightarrow$ & $aX^f(\theta)+bY^f(\theta)$ \\
-$x(t-t_0)$ & $\leftrightarrow$ & $X^f(\theta)e^{-j\theta k_0}$ \\
-$x(at)$ & $\leftrightarrow$ & $\frac{1}{|a|}X^f(\frac{\theta}{a})$ \\
-$x^*(t)$ & $\leftrightarrow$ & $X^{f*}(-\theta)$ \\
+$ax[k]+by[k]$ & $\leftrightarrow$ & $aX^f(\theta)+bY^f(\theta)$ \\
+$x[k-k_0]$ & $\leftrightarrow$ & $X^f(\theta)e^{-j\theta k_0}$ \\
+$x[ak]$ & $\leftrightarrow$ & $\frac{1}{|a|}X^f(\frac{\theta}{a})$ \\
+$x^*[k]$ & $\leftrightarrow$ & $X^{f*}(-\theta)$ \\
 $x[k]\cdot y[k] $ & $\leftrightarrow$ & $\frac{1}{2\pi} \int_{2\pi}X^f(v)Y^f(\theta-v) dv $ \\
-$$ & $\leftrightarrow$ & $$ \\
 \end{tabular} \newline
 $x(t)\otimes y(t)= \int_T x(\tau)y(t-\tau) d\tau$ \newline
 Ableitung als $ x[k]-x[k-1]$
 
 \subsection{Paare}
 \begin{tabular}{ c c c }
-$\delta(t)$ & $\leftrightarrow$ & $1$\\
+$\delta[k]$ & $\leftrightarrow$ & $1$\\
 $1$ & $\leftrightarrow$ & $2\pi\sum_{m=-\infty}^\infty \delta(\theta -2\pi m)$\\
-$\Gamma(t)$ & $\leftrightarrow$ & $\pi\sum_m\delta(\theta -2\pi m)+\frac{1}{1-e^{-j\theta}}$\\
-$a^k\Gamma(t)$ & $\leftrightarrow$ & $\frac{1}{1-ae^{-j\theta}}$\\
+$\Gamma[k]$ & $\leftrightarrow$ & $\pi\sum_m\delta(\theta -2\pi m)+\frac{1}{1-e^{-j\theta}}$\\
+$a^k\Gamma[k]$ & $\leftrightarrow$ & $\frac{1}{1-ae^{-j\theta}}$\\
 $e^{j\theta_0k}$ & $\leftrightarrow$ & $2\pi\sum_m \delta(\theta -\theta_0 -2\pi m)$\\
-$sin(\omega_0 t)$ & $\leftrightarrow$ & $j\pi\sum_m[\delta(\theta -\theta_0 -2\pi m)-\delta(\theta +\theta_0 -2\pi m)]$\\
-$cos(\omega_0t)$ & $\leftrightarrow$ & $\pi\sum_m[\delta(\theta -\theta_0 -2\pi m)+\delta(\theta +\theta_0 -2\pi m)]$\\
+$sin(\theta_0 k)$ & $\leftrightarrow$ & $j\pi\sum_m[\delta(\theta -\theta_0 -2\pi m)-\delta(\theta +\theta_0 -2\pi m)]$\\
+$cos(\theta_0k)$ & $\leftrightarrow$ & $\pi\sum_m[\delta(\theta -\theta_0 -2\pi m)+\delta(\theta +\theta_0 -2\pi m)]$\\
 
 \end{tabular}
 
